@@ -3,8 +3,63 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 
+ul {
+  list-style-type: none;
+}
+
 header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  color: var(--text-color);
+  background-color: var(--menu-background);
+  height: 100vh;
+}
+
+header h1.logo {
+  font-family: 'Parisienne', cursive;
+  color: var(--primary-color);
+}
+
+header nav {
+  flex-grow: 1;
+}
+
+header nav ul.side-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+header nav ul li {
+  display: flex;
   align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+header nav ul li:hover {
+  background-color: var(--menu-hover);
+}
+
+header nav ul li span.material-icons {
+  padding-right: 10px;
+}
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 1rem;
+  color: var(--text-color);
+  padding: 2rem 0;
+}
+
+footer .footer-links a {
+  color: var(--primary-color);
+  padding-right: 14px;
+  font-size: 1.5rem;
+}
+
+footer p.copyright {
+  font-size: 14px;
 }

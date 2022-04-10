@@ -1,3 +1,5 @@
+import {NavMenu} from "../../components";
+
 const VideoListing = () => {
   return (
     <>
