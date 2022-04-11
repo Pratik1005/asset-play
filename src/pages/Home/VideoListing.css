@@ -1,0 +1,66 @@
+/* chips */
+.chips-ctn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.chips-ctn .chip {
+    padding: 8px 12px;
+    border-radius: 1.25rem;
+    background-color: var(--light-gray);
+    cursor: pointer;
+}
+
+.chips-ctn .chip-active {
+    color: var(--chip-active-color);
+    background-color: var(--primary-color);
+}
+
+/* videos-ctn */
+.videos-ctn {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22.5rem, 1fr));
+    gap: 2rem;
+}
+
+/* single video */
+.video .video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail span.time-overlay {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgba(0,0,0,0.8);
+    color: var(--clr-white);
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.videos-ctn .video .video-info {
+    display: flex;
+    padding-top: 10px;
+}
+
+.video-info img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.video-info .meta-data {
+    padding-left: 10px;
+    flex-grow: 1;
+}
+
+.video-option span.material-icons {
+    cursor: pointer;
+}
+
+.meta-data .views-date-info {
+    display: flex;
+    gap: 5px;
+}

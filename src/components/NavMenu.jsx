@@ -1,8 +1,8 @@
 const NavMenu = () => {
   return (
-    <header className="pd-sm">
+    <aside className="pd-sm">
       <div>
-        <h1 className="logo pd-bottom-lg">AssetPlay</h1>
+        <h1 className="logo">AssetPlay</h1>
       </div>
       <nav>
         <ul className="side-menu">
@@ -27,6 +27,10 @@ const NavMenu = () => {
             Watch later
           </li>
           <li>
+            <span class="material-icons">dark_mode</span>
+            Dark mode
+          </li>
+          <li>
             <span className="material-icons">account_circle</span> Profile
           </li>
         </ul>
@@ -49,7 +53,7 @@ const NavMenu = () => {
         </div>
         <p className="copyright">© {new Date().getFullYear()} AssetPlay</p>
       </footer>
-    </header>
+    </aside>
   );
 };
 
