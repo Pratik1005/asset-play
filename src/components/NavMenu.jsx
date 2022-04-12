@@ -7,27 +7,27 @@ const NavMenu = () => {
       <nav>
         <ul className="side-menu">
           <li>
-            <span class="material-icons">home</span> Home
+            <span className="material-icons">home</span> Home
           </li>
           <li>
-            <span class="material-icons">search</span> Search
+            <span className="material-icons">search</span> Search
           </li>
           <li>
-            <span class="material-icons">video_library</span>
+            <span className="material-icons">video_library</span>
             Playlist
           </li>
           <li>
-            <span class="material-icons">favorite</span> Liked videos
+            <span className="material-icons">favorite</span> Liked videos
           </li>
           <li>
-            <span class="material-icons">history</span> History
+            <span className="material-icons">history</span> History
           </li>
           <li>
-            <span class="material-icons">watch_later</span>
+            <span className="material-icons">watch_later</span>
             Watch later
           </li>
           <li>
-            <span class="material-icons">dark_mode</span>
+            <span className="material-icons">dark_mode</span>
             Dark mode
           </li>
           <li>
