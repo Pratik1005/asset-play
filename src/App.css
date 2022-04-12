@@ -1,0 +1,73 @@
+@import "https://litespeedui.netlify.app/components/components.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+
+ul {
+  list-style-type: none;
+}
+
+.app-ctn {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  background-color: var(--body-background);
+}
+
+aside {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  background-color: var(--menu-background);
+  height: 100vh;
+  top: 0;
+}
+
+aside h1.logo {
+  font-family: 'Parisienne', cursive;
+  color: var(--primary-color);
+}
+
+aside nav {
+  flex-grow: 1;
+}
+
+aside nav ul.side-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+aside nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+aside nav ul li:hover {
+  background-color: var(--menu-hover);
+}
+
+aside nav ul li span.material-icons {
+  padding-right: 10px;
+}
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  padding: 2rem 0;
+}
+
+footer .footer-links a {
+  color: var(--primary-color);
+  padding-right: 14px;
+  font-size: 1.5rem;
+}
+
+footer p.copyright {
+  font-size: 14px;
+}
