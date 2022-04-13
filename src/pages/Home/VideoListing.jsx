@@ -1,9 +1,25 @@
 import "./VideoListing.css";
+import {useState, useEffect} from "react";
+import axios from "axios";
 import {NavMenu, VideoCard} from "../../components";
 import thumbnail from "../../assets/video-thumbnail.jpg";
 import profile from "../../assets/profile.jpg";
 
 const VideoListing = () => {
+  const [videos, setVideos] = useState([]);
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/videos");
+        console.log(response.data.videos);
+        setVideos(response.data.videos);
+      } catch (err) {
+        console.error("video listing", err);
+      }
+    })();
+  }, []);
   return (
     <section className="app-ctn">
       <NavMenu />
@@ -26,8 +42,8 @@ const VideoListing = () => {
           </div>
         </div>
         <div className="videos-ctn pd-lg">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-            <VideoCard cardData={{thumbnail, profile}} key={item} />
+          {videos.map((item) => (
+            <VideoCard cardData={item} key={item._id} />
           ))}
         </div>
       </div>

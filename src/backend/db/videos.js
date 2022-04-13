@@ -15,6 +15,7 @@ export const videos = [
     creator: "CA Rachana Phadke Ranade",
     views: "20663183",
     date: "Feb 12, 2019",
+    length: "1:35:07",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -29,6 +30,7 @@ export const videos = [
     creator: "CA Rachana Phadke Ranade",
     views: "7929023",
     date: "Jun 1, 2019",
+    length: "1:43:02",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -43,6 +45,7 @@ export const videos = [
     creator: "CA Rachana Phadke Ranade",
     views: "2602507",
     date: "Jul 25, 2020",
+    length: "1:31:12",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -57,6 +60,7 @@ export const videos = [
     creator: "warikoo",
     views: "539344",
     date: "Dec 22, 2020",
+    length: "19:33",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -71,6 +75,7 @@ export const videos = [
     creator: "warikoo",
     views: "352370",
     date: "Mar 16, 2021",
+    length: "17:53",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -85,6 +90,7 @@ export const videos = [
     creator: "The Rich Dad Channel",
     views: "400248",
     date: "Jan 21, 2020",
+    length: "43:06",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -99,6 +105,7 @@ export const videos = [
     creator: "The Rich Dad Channel",
     views: "910823",
     date: "Aug 7, 2019",
+    length: "47:24",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -113,6 +120,7 @@ export const videos = [
     creator: "warikoo",
     views: "2650815",
     date: "Jan 19, 2021",
+    length: "19:12",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -127,6 +135,7 @@ export const videos = [
     creator: "warikoo",
     views: "244302",
     date: "Jan 9, 2021",
+    length: "16:30",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -141,6 +150,7 @@ export const videos = [
     creator: "warikoo",
     views: "184621",
     date: "Apr 17, 2021",
+    length: "14:04",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -154,6 +164,7 @@ export const videos = [
     creator: "warikoo",
     views: "155322",
     date: "Feb 24, 2022",
+    length: "22:14",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -168,6 +179,7 @@ export const videos = [
     creator: "warikoo",
     views: "59285",
     date: "Oct 24, 2020",
+    length: "7:07",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -182,6 +194,7 @@ export const videos = [
     creator: "warikoo",
     views: "290492",
     date: "Mar 12, 2022",
+    length: "18:59",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -195,6 +208,7 @@ export const videos = [
     creator: "Sandeep Maheshwari",
     views: "1933520",
     date: "Jul 5, 2021",
+    length: "1:14:04",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -208,6 +222,7 @@ export const videos = [
     creator: "Sandeep Maheshwari",
     views: "44175676",
     date: "Sep 25, 2019",
+    length: "28:25",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
@@ -222,6 +237,7 @@ export const videos = [
     creator: "Sandeep Maheshwari",
     views: "1700158 ",
     date: "Mar 16, 2021",
+    length: "39:45",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },

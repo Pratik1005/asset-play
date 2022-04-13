@@ -30,6 +30,11 @@
     position: relative;
 }
 
+.video-thumbnail .thumbnail {
+    width: 375px;
+    height: 211px;
+}
+
 .video-thumbnail span.time-overlay {
     position: absolute;
     right: 5px;
@@ -56,11 +61,16 @@
     flex-grow: 1;
 }
 
-.video-option span.material-icons {
-    cursor: pointer;
+.meta-data p.creator {
+    font-size: 14px
 }
 
 .meta-data .views-date-info {
     display: flex;
     gap: 5px;
+    font-size: 14px;
+}
+
+.video-option span.material-icons {
+    cursor: pointer;
 }
