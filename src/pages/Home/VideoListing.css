@@ -61,6 +61,10 @@
     flex-grow: 1;
 }
 
+.meta-data h5.video-title {
+    line-height: 1.3;
+}
+
 .meta-data p.creator {
     font-size: 14px
 }
