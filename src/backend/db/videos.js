@@ -5,16 +5,207 @@
 
 export const videos = [
   {
-    _id: "Wo5dMEP_BbI",
-    title: "Awesome Video about Coding",
+    _id: "Xn7KWR9EOGQ",
+    title:
+      "Basics of Stock Market For Beginners Lecture 1 By CA Rachana Phadke Ranade",
+    thumbnail: "https://i.ytimg.com/vi/Xn7KWR9EOGQ/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/ytc/AKedOLSA3Tow9_-RTNU6WslhjukZuknVu3JzcGiCMumw5g=s88-c-k-c0x00ffffff-no-rj",
+    creator: "CA Rachana Phadke Ranade",
+    views: "20663183",
+    date: "Feb 12, 2019",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    creator: "Soham Shah",
   },
   {
-    _id: "F_Riqjdh2oM",
-    title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
-    creator: "Sentdex",
+    _id: "bLl_VRQ7pBs",
+    title:
+      "Basics of Stock Market For Beginners Lecture 2 By CA Rachana Phadke Ranade",
+    thumbnail: "https://i.ytimg.com/vi/bLl_VRQ7pBs/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/ytc/AKedOLSA3Tow9_-RTNU6WslhjukZuknVu3JzcGiCMumw5g=s88-c-k-c0x00ffffff-no-rj",
+    creator: "CA Rachana Phadke Ranade",
+    views: "7929023",
+    date: "Jun 1, 2019",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "hBKqk5oYexw",
+    title:
+      "Basics Of Stock Market for Beginners Lecture 3 by CA Rachana Ranade",
+    thumbnail: "https://i.ytimg.com/vi/hBKqk5oYexw/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/ytc/AKedOLSA3Tow9_-RTNU6WslhjukZuknVu3JzcGiCMumw5g=s88-c-k-c0x00ffffff-no-rj",
+    creator: "CA Rachana Phadke Ranade",
+    views: "2602507",
+    date: "Jul 25, 2020",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "hIYSxqrraWA",
+    title:
+      "Stock Market for Beginners | Investing Strategies 2021 | Ankur Warikoo Hindi",
+    thumbnail: "https://i.ytimg.com/vi/hIYSxqrraWA/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "539344",
+    date: "Dec 22, 2020",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "nmjbzn1eKuM",
+    title:
+      "Stock Analysis For beginners | Share Market Investing explained! | Ankur Warikoo Hindi Video",
+    thumbnail: "https://i.ytimg.com/vi/nmjbzn1eKuM/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "352370",
+    date: "Mar 16, 2021",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "VtYE9FkcJlU",
+    title:
+      "Rich Dad Wealth Machine: How to Invest in Real Estate to Maximize Cash Flow - Robert Kiyosaki",
+    thumbnail: "https://i.ytimg.com/vi/VtYE9FkcJlU/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/ytc/AKedOLSOjQxuPE0N5nm0DKC2AR3HCizngU8NdLPOm83zRQ=s88-c-k-c0x00ffffff-no-rj",
+    creator: "The Rich Dad Channel",
+    views: "400248",
+    date: "Jan 21, 2020",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "7_15RfVrxec",
+    title:
+      "What Type of Real Estate the Rich Invest In - Robert Kiyosaki [FULL Radio Show]",
+    thumbnail: "https://i.ytimg.com/vi/7_15RfVrxec/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/ytc/AKedOLSOjQxuPE0N5nm0DKC2AR3HCizngU8NdLPOm83zRQ=s88-c-k-c0x00ffffff-no-rj",
+    creator: "The Rich Dad Channel",
+    views: "910823",
+    date: "Aug 7, 2019",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "yNaN5kYTNLY",
+    title:
+      "Complete Financial Planning for your 20s! | Investing for Beginners 2021 | Ankur Warikoo Hindi",
+    thumbnail: "https://i.ytimg.com/vi/yNaN5kYTNLY/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "2650815",
+    date: "Jan 19, 2021",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "XKhizGVv80s",
+    title:
+      "ESOP - Employee Stock Option Plan EXPLAINED in Hindi | Ankur Warikoo Startups | Startup Video",
+    thumbnail: "https://i.ytimg.com/vi/XKhizGVv80s/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "244302",
+    date: "Jan 9, 2021",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "nbrkmJTuGoY",
+    title:
+      "Best Personal Finance strategies for 2021 | How to manage your money | Ankur Warikoo Hindi",
+    thumbnail: "https://i.ytimg.com/vi/nbrkmJTuGoY/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "184621",
+    date: "Apr 17, 2021",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "LIItg5G7PzQ",
+    title: "How I SPEND MY MONEY? | Personal Finance | Ankur Warikoo Hindi",
+    thumbnail: "https://i.ytimg.com/vi/LIItg5G7PzQ/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "155322",
+    date: "Feb 24, 2022",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "TITs-R1BM-M",
+    title:
+      "3 money management tips | Best Personal Finance Strategies | Ankur Warikoo Hindi Video",
+    thumbnail: "https://i.ytimg.com/vi/TITs-R1BM-M/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "59285",
+    date: "Oct 24, 2020",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "zL3CniOFMvU",
+    title:
+      "7 ASSETS that WILL make you RICH! | Personal Finance for Beginners | Ankur Warikoo Hindi",
+    thumbnail: "https://i.ytimg.com/vi/zL3CniOFMvU/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/X9eoDIB9cgb1s-kvATRs1lQDcU4Fjc15NDV9s9FF8ck7IsA8u7OdijaernoDV9LLdePgjlt_=s88-c-k-c0x00ffffff-no-rj",
+    creator: "warikoo",
+    views: "290492",
+    date: "Mar 12, 2022",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "mSB8wMHxHKs",
+    title: "Financial Freedom - By Sandeep Maheshwari",
+    thumbnail: "https://i.ytimg.com/vi/mSB8wMHxHKs/hq720.jpg",
+    profile:
+      "https://yt3.ggpht.com/UjKc54x7sVzQ4KLlS5rgMI0DdLoaa4cFbFpsFsxLxcSXEbTWotIPvyCA63BjTddipDv8LQufiQ=s88-c-k-c0x00ffffff-no-rj",
+    creator: "Sandeep Maheshwari",
+    views: "1933520",
+    date: "Jul 5, 2021",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "LknADkbbekc",
+    title: "Make Money From Money - Sandeep Maheshwari",
+    thumbnail: "https://i.ytimg.com/vi/LknADkbbekc/hqdefault.jpg",
+    profile:
+      "https://yt3.ggpht.com/UjKc54x7sVzQ4KLlS5rgMI0DdLoaa4cFbFpsFsxLxcSXEbTWotIPvyCA63BjTddipDv8LQufiQ=s88-c-k-c0x00ffffff-no-rj",
+    creator: "Sandeep Maheshwari",
+    views: "44175676",
+    date: "Sep 25, 2019",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+  },
+  {
+    _id: "4WXiyQOGuk4",
+    title:
+      "How To Start Your Own Business? Q&A #2 With Sandeep Maheshwari | Startup & Entrepreneurship | Hindi",
+    thumbnail: "https://i.ytimg.com/vi/4WXiyQOGuk4/hqdefault.jpg",
+    profile:
+      "https://yt3.ggpht.com/UjKc54x7sVzQ4KLlS5rgMI0DdLoaa4cFbFpsFsxLxcSXEbTWotIPvyCA63BjTddipDv8LQufiQ=s88-c-k-c0x00ffffff-no-rj",
+    creator: "Sandeep Maheshwari",
+    views: "1700158 ",
+    date: "Mar 16, 2021",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
   },
