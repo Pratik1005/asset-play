@@ -1,6 +1,6 @@
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
-import {VideoListing, Search, Login, SignUp} from "./pages/";
+import {VideoListing, Search, Login, SignUp, ForgotPassword} from "./pages/";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Route path={"/search"} element={<Search />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<SignUp />} />
+        <Route path={"/forgotpassword"} element={<ForgotPassword />} />
       </Routes>
     </div>
   );
