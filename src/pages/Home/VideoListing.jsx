@@ -1,33 +1,77 @@
 import "./VideoListing.css";
-import {NavMenu, VideoCard} from "../../components";
-import thumbnail from "../../assets/video-thumbnail.jpg";
-import profile from "../../assets/profile.jpg";
+import {useState, useEffect} from "react";
+import axios from "axios";
+import {NavMenu, VideoCard, Loader} from "../../components";
 
 const VideoListing = () => {
+  const [videos, setVideos] = useState([]);
+  const [categoryVideos, setCategoryVideos] = useState([]);
+  const [loader, setLoader] = useState(true);
+  const [currentCategory, setCurrentCategory] = useState("All");
+  const videoCategory = [
+    "Stock Investing",
+    "Real Estate",
+    "basic Finance",
+    "Self Help",
+  ];
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/videos");
+        setVideos(response.data.videos);
+        setLoader(false);
+        setCategoryVideos(response.data.videos);
+      } catch (err) {
+        setLoader(false);
+        console.error("video listing", err);
+      }
+    })();
+  }, []);
+
+  const handleVideoFilter = (category) => {
+    setCurrentCategory(category);
+    const result = videos.filter(
+      (item) => item.category.toLowerCase() === category.toLowerCase()
+    );
+    setCategoryVideos(result);
+  };
+
+  const handleAllCategory = () => {
+    setCurrentCategory("All");
+    setCategoryVideos(videos);
+  };
+
+  const isChipActive = (category) => {
+    return currentCategory.toLowerCase() === category.toLowerCase()
+      ? "chip-active"
+      : null;
+  };
   return (
     <section className="app-ctn">
       <NavMenu />
       <div className="video-list-ctn">
         <div className="chips-ctn pd-sm">
-          <div className="chip  chip-active">
-            <p>All</p>
+          <div
+            className={`chip ${isChipActive("All")}`}
+            onClick={handleAllCategory}
+          >
+            <span>All</span>
           </div>
-          <div className="chip">
-            <p>Stock Investing</p>
-          </div>
-          <div className="chip">
-            <p>Real Estate</p>
-          </div>
-          <div className="chip">
-            <p>Basic Finance</p>
-          </div>
-          <div className="chip">
-            <p>Self Help</p>
-          </div>
+          {videoCategory.map((item) => (
+            <div
+              className={`chip ${isChipActive(item)}`}
+              key={item}
+              onClick={() => handleVideoFilter(item)}
+            >
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
+        {loader && <Loader />}
         <div className="videos-ctn pd-lg">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-            <VideoCard cardData={{thumbnail, profile}} key={item} />
+          {categoryVideos.map((item) => (
+            <VideoCard cardData={item} key={item._id} />
           ))}
         </div>
       </div>

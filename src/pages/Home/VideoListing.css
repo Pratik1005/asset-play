@@ -21,7 +21,7 @@
 /* videos-ctn */
 .videos-ctn {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(23.4rem, 1fr));
     gap: 2rem;
 }
 
@@ -29,6 +29,11 @@
 .video .video-thumbnail {
     position: relative;
 }
+
+/* .video-thumbnail .thumbnail {
+    width: 23.4rem;
+    height: 13.18rem;
+} */
 
 .video-thumbnail span.time-overlay {
     position: absolute;
@@ -56,11 +61,20 @@
     flex-grow: 1;
 }
 
-.video-option span.material-icons {
-    cursor: pointer;
+.meta-data h5.video-title {
+    line-height: 1.3;
+}
+
+.meta-data p.creator {
+    font-size: 14px
 }
 
 .meta-data .views-date-info {
     display: flex;
     gap: 5px;
+    font-size: 14px;
+}
+
+.video-option span.material-icons {
+    cursor: pointer;
 }

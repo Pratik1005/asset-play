@@ -1,20 +1,24 @@
+import {reduceTitleLength, convertViews} from "../utils/";
+
 const VideoCard = ({cardData}) => {
-  const {thumbnail, profile} = cardData;
+  const {thumbnail, profile, title, creator, views, date, length} = cardData;
   return (
     <div className="video">
       <div className="video-thumbnail">
-        <img src={thumbnail} alt="title" className="img-responsive" />
-        <span className="time-overlay fw-bold">19:13</span>
+        <img src={thumbnail} alt="{title}" className="img-responsive" />
+        <span className="time-overlay fw-bold">{length}</span>
       </div>
       <div className="video-info">
-        <img src={profile} alt="profile" className="br-full" />
+        <img src={profile} alt="{creator}" className="br-full" />
         <div className="meta-data">
-          <h5 className="fw-bold pd-bottom-sm">How to Invest in your 20s</h5>
-          <p className="pd-bottom-sm">warikoo</p>
+          <h5 className="fw-bold pd-bottom-sm video-title">
+            {reduceTitleLength(title)}
+          </h5>
+          <p className="pd-bottom-sm creator">{creator}</p>
           <div className="views-date-info">
-            <span>2.6M views</span>
+            <span>{convertViews(views)}</span>
             <span>•</span>
-            <span>1 year ago</span>
+            <span>{date}</span>
           </div>
         </div>
         <div className="video-option">
