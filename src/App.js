@@ -1,6 +1,6 @@
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
-import {VideoListing, Search} from "./pages/";
+import {VideoListing, Search, Login} from "./pages/";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<VideoListing />} />
         <Route path={"/search"} element={<Search />} />
+        <Route path={"/login"} element={<Login />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,84 @@
+form {
+  background-color: var(--clr-white);
+  padding: 2rem 4rem;
+  width: 100%;
+  border-radius: 8px;
+  margin: 4rem auto;
+  max-width: 31.25rem;
+  box-shadow: var(--light-shadow);
+}
+
+.form-control {
+  padding-bottom: 1rem;
+}
+
+.form-control label {
+  display: block;
+  padding-bottom: 0.125rem;
+}
+
+.form-control label[for="remember-me"],
+.form-control label[for="terms-condition"] {
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  border: 2px solid var(--light-gray);
+  border-radius: 6px;
+}
+
+input:focus {
+  border-color: var(--txt-dark);
+}
+
+.form-control button {
+  width: 100%;
+}
+
+.account-toggle a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--txt-dark);
+}
+
+/* login */
+.forgot-pw {
+  padding-left: 3rem;
+  color: #a78bfa;
+}
+
+/* logout */
+.logout-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+button.btn-icon-text-outline {
+  margin: 0;
+  background-color: var(--clr-white);
+}
+
+/* error */
+.error-msg {
+  color: var(--input-error);
+}
+
+@media screen and (max-width: 800px) {
+  form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .forgot-pw {
+    display: block;
+    padding: 0;
+  }
+}
