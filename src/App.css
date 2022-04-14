@@ -24,33 +24,55 @@ aside {
 }
 
 aside h1.logo {
-  font-family: 'Parisienne', cursive;
+  font-family: "Parisienne", cursive;
   color: var(--primary-color);
 }
 
-aside nav {
+aside nav.side-menu {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
-aside nav ul.side-menu {
-  display: flex;
-  flex-direction: column;
-}
-
-aside nav ul li {
+aside nav.side-menu .menu-link {
   display: flex;
   align-items: center;
   padding: 1rem;
   cursor: pointer;
+  color: var(--text-color);
 }
 
-aside nav ul li:hover {
+aside nav .menu-link:hover {
   background-color: var(--menu-hover);
 }
 
-aside nav ul li span.material-icons {
+aside nav .menu-link.active-link {
+  background-color: var(--menu-hover);
+}
+
+aside nav span.material-icons {
   padding-right: 10px;
 }
+
+/* aside nav ul.side-menu {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* aside nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+} */
+
+/* aside nav ul li:hover {
+  background-color: var(--menu-hover);
+} */
+
+/* aside nav ul li span.material-icons {
+  padding-right: 10px;
+} */
 
 /* footer */
 footer {
@@ -70,4 +92,7 @@ footer .footer-links a {
 
 footer p.copyright {
   font-size: 14px;
+}
+
+@media screen and (max-width: 800px) {
 }
