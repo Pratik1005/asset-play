@@ -23,6 +23,7 @@ const VideoListing = () => {
         setLoader(false);
         setCategoryVideos(response.data.videos);
       } catch (err) {
+        setLoader(false);
         console.error("video listing", err);
       }
     })();

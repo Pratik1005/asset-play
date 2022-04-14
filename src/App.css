@@ -54,26 +54,6 @@ aside nav span.material-icons {
   padding-right: 10px;
 }
 
-/* aside nav ul.side-menu {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* aside nav ul li {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  cursor: pointer;
-} */
-
-/* aside nav ul li:hover {
-  background-color: var(--menu-hover);
-} */
-
-/* aside nav ul li span.material-icons {
-  padding-right: 10px;
-} */
-
 /* footer */
 footer {
   display: flex;
@@ -92,7 +72,4 @@ footer .footer-links a {
 
 footer p.copyright {
   font-size: 14px;
-}
-
-@media screen and (max-width: 800px) {
 }
