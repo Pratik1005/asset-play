@@ -216,7 +216,8 @@ export const videos = [
     _id: "LknADkbbekc",
     category: "Self Help",
     title: "Make Money From Money - Sandeep Maheshwari",
-    thumbnail: "https://i.ytimg.com/vi/LknADkbbekc/hqdefault.jpg",
+    thumbnail:
+      "https://i.ytimg.com/vi/LknADkbbekc/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLByYqNqV9LA9xHIF4dt3vClsn76Cg",
     profile:
       "https://yt3.ggpht.com/UjKc54x7sVzQ4KLlS5rgMI0DdLoaa4cFbFpsFsxLxcSXEbTWotIPvyCA63BjTddipDv8LQufiQ=s88-c-k-c0x00ffffff-no-rj",
     creator: "Sandeep Maheshwari",
@@ -231,7 +232,8 @@ export const videos = [
     category: "Self Help",
     title:
       "How To Start Your Own Business? Q&A #2 With Sandeep Maheshwari | Startup & Entrepreneurship | Hindi",
-    thumbnail: "https://i.ytimg.com/vi/4WXiyQOGuk4/hqdefault.jpg",
+    thumbnail:
+      "https://i.ytimg.com/vi/4WXiyQOGuk4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAhbFmqtdd3e-lZQYkWlTqBR0KoUw",
     profile:
       "https://yt3.ggpht.com/UjKc54x7sVzQ4KLlS5rgMI0DdLoaa4cFbFpsFsxLxcSXEbTWotIPvyCA63BjTddipDv8LQufiQ=s88-c-k-c0x00ffffff-no-rj",
     creator: "Sandeep Maheshwari",

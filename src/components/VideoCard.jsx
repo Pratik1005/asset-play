@@ -5,7 +5,7 @@ const VideoCard = ({cardData}) => {
   return (
     <div className="video">
       <div className="video-thumbnail">
-        <img src={thumbnail} alt="{title}" className="thumbnail" />
+        <img src={thumbnail} alt="{title}" className="img-responsive" />
         <span className="time-overlay fw-bold">{length}</span>
       </div>
       <div className="video-info">
