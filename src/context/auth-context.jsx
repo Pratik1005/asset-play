@@ -12,7 +12,7 @@ const AuthProvider = ({children}) => {
         ? setAuth({token: token, isLoggenIn: true})
         : setAuth({token: "", isLoggedIn: false});
     })();
-  });
+  }, []);
   return (
     <AuthContext.Provider value={{auth, setAuth}}>
       {children}

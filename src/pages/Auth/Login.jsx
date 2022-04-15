@@ -1,33 +1,40 @@
 import "./Auth.css";
 import {useState} from "react";
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate, Link, useLocation} from "react-router-dom";
 import {NavMenu} from "../../components";
+import {useAuth} from "../../context";
+import axios from "axios";
 
 const Login = () => {
+  const {setAuth} = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  console.log(location);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-    error: false,
   });
 
   const handleEmail = (e) => {
-    setLoginData((prev) => ({...prev, email: e.target.value, error: false}));
+    setLoginData((prev) => ({...prev, email: e.target.value}));
   };
 
   const handlePassword = (e) => {
-    setLoginData((prev) => ({...prev, password: e.target.value, error: false}));
+    setLoginData((prev) => ({...prev, password: e.target.value}));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e, email, password) => {
     e.preventDefault();
-    if (
-      loginData.email === "test@gmail.com" &&
-      loginData.password === "test@123"
-    ) {
-      navigate("/user");
-    } else {
-      setLoginData({email: "", password: "", error: true});
+    setLoginData({email: email, password: password});
+    try {
+      const response = await axios.post("/api/auth/login", {email, password});
+      console.log(response);
+      localStorage.setItem("token", response.data.encodedToken);
+      setAuth({token: response.data.encodedToken, isLoggedIn: true});
+      navigate(location?.state?.from?.pathname, {replace: true});
+    } catch (err) {
+      console.error("login", err);
     }
   };
 
@@ -39,11 +46,11 @@ const Login = () => {
     <section className="app-ctn">
       <NavMenu />
       <div>
-        <form className="br-md">
+        <form
+          className="br-md"
+          onSubmit={(e) => handleLogin(e, loginData.email, loginData.password)}
+        >
           <h2 className="text-center mg-bottom-md">Login</h2>
-          {loginData.error && (
-            <p className="error-msg form-control">Invalid credentials</p>
-          )}
           <div className="form-control">
             <label htmlFor="email" className="fw-bold">
               Email address
@@ -54,6 +61,7 @@ const Login = () => {
               id="email"
               placeholder="name@gmail.com"
               autocomplete="off"
+              required
               value={loginData.email}
               onChange={(e) => handleEmail(e)}
             />
@@ -66,6 +74,7 @@ const Login = () => {
               type="password"
               name="password"
               id="password"
+              required
               value={loginData.password}
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
               onChange={(e) => handlePassword(e)}
@@ -81,14 +90,14 @@ const Login = () => {
             </Link>
           </div>
           <div className="form-control">
-            <button className="btn btn-primary" onClick={(e) => handleLogin(e)}>
-              Login
-            </button>
+            <button className="btn btn-primary">Login</button>
           </div>
           <div className="form-control">
             <button
               className="btn btn-primary-outline"
-              onClick={(e) => handleTestLogin(e)}
+              onClick={(e) =>
+                handleLogin(e, "adarshbalika@gmail.com", "adarshBalika123")
+              }
             >
               Login with test credentials
             </button>

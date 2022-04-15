@@ -1,38 +1,40 @@
 import {NavLink} from "react-router-dom";
 
+const getActiveStyle = ({isActive}) =>
+  isActive ? {backgroundColor: "var(--menu-hover)"} : null;
+
 const NavMenu = () => {
-  const getActiveStyle = ({isActive}) => (isActive ? "active-link" : null);
   return (
     <aside className="pd-sm">
       <div>
         <h1 className="logo">AssetPlay</h1>
       </div>
       <nav className="side-menu">
-        <NavLink to="/" className={`menu-link ${getActiveStyle}`}>
+        <NavLink style={getActiveStyle} className="menu-link" to="/">
           <span className="material-icons">home</span> Home
         </NavLink>
-        <NavLink to="/search" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/search" style={getActiveStyle} className="menu-link">
           <span className="material-icons">search</span> Search
         </NavLink>
-        <NavLink to="/playlist" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/playlist" style={getActiveStyle} className="menu-link">
           <span className="material-icons">video_library</span>
           Playlist
         </NavLink>
-        <NavLink to="/likedvideos" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/likedvideos" style={getActiveStyle} className="menu-link">
           <span className="material-icons">favorite</span> Liked videos
         </NavLink>
-        <NavLink to="/history" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/history" style={getActiveStyle} className="menu-link">
           <span className="material-icons">history</span> History
         </NavLink>
-        <NavLink to="/watchlater" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/watchlater" style={getActiveStyle} className="menu-link">
           <span className="material-icons">watch_later</span>
           Watch later
         </NavLink>
-        <div className={`menu-link ${getActiveStyle}`}>
+        <div className="menu-link">
           <span className="material-icons">dark_mode</span>
           Dark mode
         </div>
-        <NavLink to="/profile" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/profile" style={getActiveStyle} className="menu-link">
           <span className="material-icons">account_circle</span> Profile
         </NavLink>
       </nav>
