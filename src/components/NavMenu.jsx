@@ -18,13 +18,13 @@ const NavMenu = () => {
           <span className="material-icons">video_library</span>
           Playlist
         </NavLink>
-        <NavLink to="/liked-videos" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/likedvideos" className={`menu-link ${getActiveStyle}`}>
           <span className="material-icons">favorite</span> Liked videos
         </NavLink>
         <NavLink to="/history" className={`menu-link ${getActiveStyle}`}>
           <span className="material-icons">history</span> History
         </NavLink>
-        <NavLink to="/watch-later" className={`menu-link ${getActiveStyle}`}>
+        <NavLink to="/watchlater" className={`menu-link ${getActiveStyle}`}>
           <span className="material-icons">watch_later</span>
           Watch later
         </NavLink>
