@@ -10,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  console.log(location);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -29,19 +28,14 @@ const Login = () => {
     setLoginData({email: email, password: password});
     try {
       const response = await axios.post("/api/auth/login", {email, password});
-      console.log(response);
       localStorage.setItem("token", response.data.encodedToken);
       setAuth({token: response.data.encodedToken, isLoggedIn: true});
-      navigate(location?.state?.from?.pathname, {replace: true});
+      navigate(from, {replace: true});
     } catch (err) {
       console.error("login", err);
     }
   };
 
-  const handleTestLogin = (e) => {
-    e.preventDefault();
-    setLoginData({email: "test@gmail.com", password: "test@123", error: false});
-  };
   return (
     <section className="app-ctn">
       <NavMenu />
@@ -60,7 +54,7 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="name@gmail.com"
-              autocomplete="off"
+              autoComplete="off"
               required
               value={loginData.email}
               onChange={(e) => handleEmail(e)}

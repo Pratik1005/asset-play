@@ -9,7 +9,7 @@ const AuthProvider = ({children}) => {
     (async () => {
       const token = localStorage.getItem("token");
       token
-        ? setAuth({token: token, isLoggenIn: true})
+        ? setAuth({token: token, isLoggedIn: true})
         : setAuth({token: "", isLoggedIn: false});
     })();
   }, []);
