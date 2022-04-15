@@ -1,6 +1,14 @@
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
-import {VideoListing, Search, Login, SignUp, ForgotPassword} from "./pages/";
+import {RequiresAuth} from "./utils";
+import {
+  VideoListing,
+  Search,
+  Login,
+  SignUp,
+  ForgotPassword,
+  PlayList,
+} from "./pages/";
 
 function App() {
   return (
@@ -11,6 +19,14 @@ function App() {
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/forgotpassword"} element={<ForgotPassword />} />
+        <Route
+          path={"/playlist"}
+          element={
+            <RequiresAuth>
+              <PlayList />
+            </RequiresAuth>
+          }
+        />
       </Routes>
     </div>
   );

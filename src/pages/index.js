@@ -3,3 +3,4 @@ export {Search} from "./Search/Search";
 export {Login} from "./Auth/Login";
 export {SignUp} from "./Auth/SignUp";
 export {ForgotPassword} from "./Auth/ForgotPassword";
+export {PlayList} from "./Playlist/PlayList";
