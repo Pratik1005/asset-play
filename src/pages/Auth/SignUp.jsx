@@ -1,13 +1,51 @@
 import "./Auth.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {toast} from "react-toastify";
 import {NavMenu} from "../../components";
+import axios from "axios";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [signUpData, setSignUpData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const signUpUser = async (userData) => {
+    const {firstName, lastName, email, password} = userData;
+    try {
+      const response = await axios.post("api/auth/signup", {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+      localStorage.setItem("token", response.data.encodedToken);
+      toast.success("Successfully Signed In");
+      navigate("/");
+    } catch (err) {
+      toast.error("Error in signup");
+      console.error("SignUp", err);
+    }
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (signUpData.password === signUpData.confirmPassword) {
+      signUpUser(signUpData);
+    } else {
+      toast.error("Passwords should match");
+    }
+  };
   return (
     <section className="app-ctn">
       <NavMenu />
       <div>
-        <form className="br-md">
+        <form className="br-md" onSubmit={handleSignUp}>
           <h2 className="text-center mg-bottom-md">Signup</h2>
           <div className="form-control">
             <label htmlFor="first-name" className="fw-bold">
@@ -18,7 +56,12 @@ const SignUp = () => {
               id="first-name"
               name="first-name"
               placeholder="first name"
-              autocomplete="off"
+              autoComplete="off"
+              required
+              value={signUpData.firstName}
+              onChange={(e) =>
+                setSignUpData((prev) => ({...prev, firstName: e.target.value}))
+              }
             />
           </div>
           <div className="form-control">
@@ -30,7 +73,12 @@ const SignUp = () => {
               id="last-name"
               name="last-name"
               placeholder="last name"
-              autocomplete="off"
+              autoComplete="off"
+              required
+              value={signUpData.lastName}
+              onChange={(e) =>
+                setSignUpData((prev) => ({...prev, lastName: e.target.value}))
+              }
             />
           </div>
           <div className="form-control">
@@ -42,7 +90,12 @@ const SignUp = () => {
               id="email"
               name="email"
               placeholder="name@gmail.com"
-              autocomplete="off"
+              autoComplete="off"
+              required
+              value={signUpData.email}
+              onChange={(e) =>
+                setSignUpData((prev) => ({...prev, email: e.target.value}))
+              }
             />
           </div>
           <div className="form-control">
@@ -54,6 +107,11 @@ const SignUp = () => {
               id="password"
               name="password"
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
+              required
+              value={signUpData.password}
+              onChange={(e) =>
+                setSignUpData((prev) => ({...prev, password: e.target.value}))
+              }
             />
           </div>
           <div className="form-control">
@@ -65,10 +123,23 @@ const SignUp = () => {
               id="confirm-password"
               name="confirm-password"
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
+              required
+              value={signUpData.confirmPassword}
+              onChange={(e) =>
+                setSignUpData((prev) => ({
+                  ...prev,
+                  confirmPassword: e.target.value,
+                }))
+              }
             />
           </div>
           <div className="form-control">
-            <input type="checkbox" id="terms-condition" name="checkbox" />
+            <input
+              type="checkbox"
+              id="terms-condition"
+              name="checkbox"
+              required
+            />
             <label htmlFor="terms-condition" className="fw-bold">
               I accept all Terms & Conditions
             </label>

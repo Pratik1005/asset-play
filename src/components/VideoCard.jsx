@@ -22,7 +22,7 @@ const VideoCard = ({cardData}) => {
           </div>
         </div>
         <div className="video-option">
-          <span class="material-icons">more_vert</span>
+          <span className="material-icons">more_vert</span>
         </div>
       </div>
     </div>

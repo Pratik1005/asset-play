@@ -1,4 +1,6 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import {ToastContainer} from "react-toastify";
 import {Routes, Route} from "react-router-dom";
 import {RequiresAuth} from "./utils";
 import {
@@ -17,6 +19,7 @@ import {
 function App() {
   return (
     <div className="App light-theme">
+      <ToastContainer autoClose={1000} />
       <Routes>
         <Route path={"/"} element={<VideoListing />} />
         <Route path={"/search"} element={<Search />} />

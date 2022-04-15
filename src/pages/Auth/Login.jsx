@@ -1,6 +1,7 @@
 import "./Auth.css";
 import {useState} from "react";
 import {useNavigate, Link, useLocation} from "react-router-dom";
+import {toast} from "react-toastify";
 import {NavMenu} from "../../components";
 import {useAuth} from "../../context";
 import axios from "axios";
@@ -30,8 +31,10 @@ const Login = () => {
       const response = await axios.post("/api/auth/login", {email, password});
       localStorage.setItem("token", response.data.encodedToken);
       setAuth({token: response.data.encodedToken, isLoggedIn: true});
+      toast.success("You have logged in");
       navigate(from, {replace: true});
     } catch (err) {
+      toast.error("Login failed");
       console.error("login", err);
     }
   };
