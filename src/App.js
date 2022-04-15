@@ -9,6 +9,7 @@ import {
   ForgotPassword,
   PlayList,
   LikedVideos,
+  History,
 } from "./pages/";
 
 function App() {
@@ -33,6 +34,14 @@ function App() {
           element={
             <RequiresAuth>
               <LikedVideos />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path={"/history"}
+          element={
+            <RequiresAuth>
+              <History />
             </RequiresAuth>
           }
         />
