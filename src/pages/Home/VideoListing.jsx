@@ -11,7 +11,7 @@ const VideoListing = () => {
   const videoCategory = [
     "Stock Investing",
     "Real Estate",
-    "basic Finance",
+    "Basic Finance",
     "Self Help",
   ];
 
