@@ -2,10 +2,12 @@ import "./Auth.css";
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {toast} from "react-toastify";
-import {NavMenu} from "../../components";
 import axios from "axios";
+import {NavMenu} from "../../components";
+import {useAuth} from "../../context";
 
 const SignUp = () => {
+  const {setAuth} = useAuth();
   const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
     firstName: "",
@@ -25,6 +27,7 @@ const SignUp = () => {
         password,
       });
       localStorage.setItem("token", response.data.encodedToken);
+      setAuth({token: response.data.encodedToken, isLoggedIn: true});
       toast.success("Successfully Signed In");
       navigate("/");
     } catch (err) {
