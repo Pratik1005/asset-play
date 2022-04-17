@@ -1,4 +1,4 @@
-form {
+form.auth-form {
   background-color: var(--clr-white);
   padding: 2rem 4rem;
   width: 100%;
@@ -72,7 +72,7 @@ button.btn-icon-text-outline {
 }
 
 @media screen and (max-width: 800px) {
-  form {
+  form.auth-form {
     width: 90%;
     padding: 1.5rem;
   }

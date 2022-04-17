@@ -44,7 +44,7 @@ const Login = () => {
       <NavMenu />
       <div>
         <form
-          className="br-md"
+          className="br-md auth-form"
           onSubmit={(e) => handleLogin(e, loginData.email, loginData.password)}
         >
           <h2 className="text-center mg-bottom-md">Login</h2>

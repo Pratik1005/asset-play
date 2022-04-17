@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     <section className="app-ctn">
       <NavMenu />
       <div>
-        <form className="br-md">
+        <form className="auth-form br-md">
           <h2 className="text-center mg-bottom-md">Forgot Password</h2>
           <div className="form-control">
             <label htmlFor="email" className="fw-bold">

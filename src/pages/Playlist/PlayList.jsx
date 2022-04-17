@@ -4,7 +4,6 @@ import {NavMenu, VideoCard} from "../../components";
 
 const PlayList = () => {
   const {userDataState} = useUserData();
-  console.log(userDataState.playlist);
   return (
     <section className="app-ctn">
       <NavMenu />

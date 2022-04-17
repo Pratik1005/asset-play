@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {toast} from "react-toastify";
 import {useUserData} from "../context";
 
 const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
@@ -6,13 +7,26 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   const [playlistName, setPlaylistName] = useState("");
   const {userDataState, userDataDispatch} = useUserData();
 
-  const handleCreateNewPlaylist = () => {
+  const handleCreateNewPlaylist = (e) => {
+    e.preventDefault();
     userDataDispatch({
       type: "ADD_TO_PLAYLIST",
       payload: {videoData, playlistName},
     });
+    toast.success(`Video added to ${playlistName} playlist`);
     setIsSaveToPlaylistActive((prev) => !prev);
   };
+
+  const isVideoInPlaylist = (id, playlist) => {
+    console.log(id, playlist);
+    const playlistObj = userDataState.playlist.filter(
+      (item) => item.name === playlist
+    );
+    console.log(playlistObj);
+    return playlistObj[0].videos.some((item) => item._id === id);
+  };
+
+  const handleTogglePlaylistVideo = () => {};
   return (
     <div className="playlist-overlay">
       <div className="save-playlist-ctn br-sm pd-sm">
@@ -27,43 +41,34 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
         </div>
         <div className="playlist pd-bottom-md">
           {userDataState.playlist.map((item) => (
-            <div className="pd-bottom-md">
-              <label className="flex-center">
-                <input type="checkbox" /> {item.name}
-              </label>
+            <div className="pd-bottom-md flex-center" key={item.name}>
+              <input
+                type="checkbox"
+                name="playlist-name"
+                id="playlist-name"
+                checked={isVideoInPlaylist(videoData._id, item.name)}
+                onChange={handleTogglePlaylistVideo}
+              />
+              <label htmlFor="playlist-name">{item.name}</label>
             </div>
           ))}
-          {/* <div className="pd-bottom-md">
-            <label className="flex-center">
-              <input type="checkbox" /> React
-            </label>
-          </div>
-          <div className="pd-bottom-md">
-            <label className="flex-center">
-              <input type="checkbox" /> Javascript
-            </label>
-          </div> */}
         </div>
         <div>
           {isCreateNewActive ? (
-            <form>
+            <form onSubmit={handleCreateNewPlaylist}>
               <div className="pd-bottom-md">
                 <label>
                   Name:
                   <input
                     type="text"
                     placeholder="Enter playlist name"
+                    required
                     value={playlistName}
                     onChange={(e) => setPlaylistName(e.target.value)}
                   />
                 </label>
               </div>
-              <button
-                className="btn btn-primary"
-                onClick={handleCreateNewPlaylist}
-              >
-                Create
-              </button>
+              <button className="btn btn-primary">Create</button>
             </form>
           ) : (
             <p
