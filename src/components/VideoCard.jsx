@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {reduceTitleLength, convertViews} from "../utils/";
+import {VideoOption} from "../components";
 
 const VideoCard = ({cardData}) => {
   const {thumbnail, profile, title, creator, views, date, length} = cardData;
@@ -31,22 +32,7 @@ const VideoCard = ({cardData}) => {
             more_vert
           </span>
           {isOptionActive && (
-            <div className="options br-sm">
-              <ul>
-                <li>
-                  <span class="material-icons">watch_later</span>Save to watch
-                  later
-                </li>
-                <li>
-                  <span class="material-icons">playlist_add</span>Save to
-                  playlist
-                </li>
-                <li>
-                  <span class="material-icons">thumb_up</span>Add to liked
-                  videos
-                </li>
-              </ul>
-            </div>
+            <VideoOption setIsOptionActive={setIsOptionActive} />
           )}
         </div>
       </div>

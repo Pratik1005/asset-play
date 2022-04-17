@@ -7,6 +7,16 @@ ul {
   list-style-type: none;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .app-ctn {
   display: grid;
   grid-template-columns: 1fr 7fr;
@@ -110,6 +120,7 @@ aside nav span.material-icons {
   cursor: pointer;
 }
 
+/* option box */
 .video-option .options {
   position: absolute;
   right: 2rem;

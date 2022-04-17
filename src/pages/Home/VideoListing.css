@@ -1,80 +1,46 @@
 /* chips */
 .chips-ctn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-bottom: 1px solid var(--light-gray);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .chips-ctn .chip {
-    padding: 8px 12px;
-    border-radius: 1.25rem;
-    background-color: var(--light-gray);
-    cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 1.25rem;
+  background-color: var(--light-gray);
+  cursor: pointer;
 }
 
 .chips-ctn .chip-active {
-    color: var(--chip-active-color);
-    background-color: var(--primary-color);
+  color: var(--chip-active-color);
+  background-color: var(--primary-color);
 }
 
-/* videos-ctn */
-.videos-ctn {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(23.4rem, 1fr));
-    gap: 2rem;
+/* playlist modal */
+.playlist-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: grid;
+  place-items: center;
 }
 
-/* single video */
-.video .video-thumbnail {
-    position: relative;
+.save-playlist-ctn {
+  width: 80%;
+  max-width: 250px;
+  background-color: var(--menu-background);
+  box-shadow: var(--light-shadow);
 }
 
-/* .video-thumbnail .thumbnail {
-    width: 23.4rem;
-    height: 13.18rem;
-} */
-
-.video-thumbnail span.time-overlay {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    background-color: rgba(0,0,0,0.8);
-    color: var(--clr-white);
-    font-size: 12px;
-    border-radius: 2px;
-    padding: 5px;
+.save-playlist-ctn label {
+  cursor: pointer;
 }
 
-.videos-ctn .video .video-info {
-    display: flex;
-    padding-top: 10px;
-}
-
-.video-info img {
-    width: 3rem;
-    height: 3rem;
-}
-
-.video-info .meta-data {
-    padding-left: 10px;
-    flex-grow: 1;
-}
-
-.meta-data h5.video-title {
-    line-height: 1.3;
-}
-
-.meta-data p.creator {
-    font-size: 14px
-}
-
-.meta-data .views-date-info {
-    display: flex;
-    gap: 5px;
-    font-size: 14px;
-}
-
-.video-option span.material-icons {
-    cursor: pointer;
+.box-title {
+  justify-content: space-between;
 }
