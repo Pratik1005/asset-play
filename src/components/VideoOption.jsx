@@ -1,11 +1,11 @@
 import {useUserData} from "../context";
 
-const VideoOption = ({setIsOptionActive}) => {
+const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive}) => {
   const {userDataDispatch} = useUserData();
 
   const handleSavePlaylist = () => {
     setIsOptionActive((prev) => !prev);
-    userDataDispatch({type: "TOGGLE_PLAYLIST_MODAL"});
+    setIsSaveToPlaylistActive((prev) => !prev);
   };
   return (
     <div className="options br-sm">

@@ -5,7 +5,6 @@ const UserDataContext = createContext(null);
 
 const initialState = {
   playlist: [],
-  isSaveToPlaylistClicked: false,
 };
 
 const UserDataProvider = ({children}) => {

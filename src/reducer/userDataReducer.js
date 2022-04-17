@@ -1,9 +1,15 @@
 const userDataReducer = (state, action) => {
   switch (action.type) {
-    case "TOGGLE_PLAYLIST_MODAL":
+    case "ADD_TO_PLAYLIST":
       return {
         ...state,
-        isSaveToPlaylistClicked: !state.isSaveToPlaylistClicked,
+        playlist: [
+          {
+            name: action.payload.playlistName,
+            videos: [action.payload.videoData],
+          },
+          ...state.playlist,
+        ],
       };
     default:
       return {state};

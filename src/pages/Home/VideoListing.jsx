@@ -77,7 +77,7 @@ const VideoListing = () => {
           ))}
         </div>
       </div>
-      {userDataState.isSaveToPlaylistClicked && <PlaylistModal />}
+      {/* {userDataState.isSaveToPlaylistClicked && <PlaylistModal />} */}
     </section>
   );
 };

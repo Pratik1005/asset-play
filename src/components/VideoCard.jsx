@@ -1,10 +1,13 @@
 import {useState} from "react";
 import {reduceTitleLength, convertViews} from "../utils/";
-import {VideoOption} from "../components";
+import {useUserData} from "../context";
+import {VideoOption, PlaylistModal} from "../components";
 
 const VideoCard = ({cardData}) => {
   const {thumbnail, profile, title, creator, views, date, length} = cardData;
   const [isOptionActive, setIsOptionActive] = useState(false);
+  const {userDataState} = useUserData();
+  const [isSaveToPlaylistActive, setIsSaveToPlaylistActive] = useState(false);
   return (
     <div className="video">
       <div className="video-thumbnail">
@@ -32,10 +35,19 @@ const VideoCard = ({cardData}) => {
             more_vert
           </span>
           {isOptionActive && (
-            <VideoOption setIsOptionActive={setIsOptionActive} />
+            <VideoOption
+              setIsOptionActive={setIsOptionActive}
+              setIsSaveToPlaylistActive={setIsSaveToPlaylistActive}
+            />
           )}
         </div>
       </div>
+      {isSaveToPlaylistActive && (
+        <PlaylistModal
+          setIsSaveToPlaylistActive={setIsSaveToPlaylistActive}
+          videoData={cardData}
+        />
+      )}
     </div>
   );
 };

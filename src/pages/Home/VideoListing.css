@@ -28,6 +28,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   display: grid;
   place-items: center;
+  z-index: 1;
 }
 
 .save-playlist-ctn {
