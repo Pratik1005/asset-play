@@ -10,8 +10,11 @@ const PlayList = () => {
       <div>
         <h2 className="text-center main-title">Your Playlist</h2>
         <div className="playlist-ctn">
+          {userDataState.playlist.length === 0 && (
+            <h3 className="text-center">You have no playlist</h3>
+          )}
           {userDataState.playlist.map((item) => (
-            <div className="pd-bottom-lg" key={item.videos[0].id}>
+            <div className="pd-bottom-lg" key={item.id}>
               <h3 className="playlist-title pd-bottom-lg">{item.name}</h3>
               <div className="videos-ctn">
                 {item.videos.map((video) => (

@@ -10,7 +10,7 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   const handleCreateNewPlaylist = (e) => {
     e.preventDefault();
     userDataDispatch({
-      type: "ADD_TO_PLAYLIST",
+      type: "CREATE_NEW_PLAYLIST_AND_ADD_VIDEO",
       payload: {videoData, playlistName},
     });
     toast.success(`Video added to ${playlistName} playlist`);
@@ -18,15 +18,28 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   };
 
   const isVideoInPlaylist = (id, playlist) => {
-    console.log(id, playlist);
     const playlistObj = userDataState.playlist.filter(
       (item) => item.name === playlist
     );
-    console.log(playlistObj);
     return playlistObj[0].videos.some((item) => item._id === id);
   };
 
-  const handleTogglePlaylistVideo = () => {};
+  const handleTogglePlaylistVideo = (id, playlist) => {
+    const isChecked = isVideoInPlaylist(id, playlist);
+    if (isChecked) {
+      userDataDispatch({
+        type: "REMOVE_VIDEO_FROM_PLAYLIST",
+        payload: {id, playlist},
+      });
+      toast.success(`Video removed from ${playlist} playlist`);
+    } else {
+      userDataDispatch({
+        type: "ADD_VIDEO_TO_PLAYLIST",
+        payload: {playlist, videoData},
+      });
+      toast.success(`Video added to ${playlist} playlist`);
+    }
+  };
   return (
     <div className="playlist-overlay">
       <div className="save-playlist-ctn br-sm pd-sm">
@@ -41,15 +54,17 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
         </div>
         <div className="playlist pd-bottom-md">
           {userDataState.playlist.map((item) => (
-            <div className="pd-bottom-md flex-center" key={item.name}>
+            <div className="pd-bottom-md flex-center" key={item.id}>
               <input
                 type="checkbox"
-                name="playlist-name"
-                id="playlist-name"
+                name={item.name}
+                id={item.name}
                 checked={isVideoInPlaylist(videoData._id, item.name)}
-                onChange={handleTogglePlaylistVideo}
+                onChange={() =>
+                  handleTogglePlaylistVideo(videoData._id, item.name)
+                }
               />
-              <label htmlFor="playlist-name">{item.name}</label>
+              <label htmlFor={item.name}>{item.name}</label>
             </div>
           ))}
         </div>
