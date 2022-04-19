@@ -1,43 +1,45 @@
-import {useState} from "react";
-import {toast} from "react-toastify";
-import {useUserData} from "../context";
+import axios from "axios";
+import {useState, useEffect} from "react";
+import {useAuth} from "../context";
+import {
+  addNewPlaylist,
+  addVideoToPlaylist,
+  isVideoInPlaylist,
+  removeVideoFromPlaylist,
+} from "../utils";
 
 const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   const [isCreateNewActive, setIsCreateNewActive] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
-  const {userDataState, userDataDispatch} = useUserData();
+  const {auth} = useAuth();
+  const [allPlaylist, setAllPlaylist] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("api/user/playlists", {
+          headers: {authorization: auth.token},
+        });
+        setAllPlaylist(response.data.playlists);
+      } catch (err) {
+        console.error("get playlist", err);
+      }
+    })();
+  }, []);
 
   const handleCreateNewPlaylist = (e) => {
     e.preventDefault();
-    userDataDispatch({
-      type: "CREATE_NEW_PLAYLIST_AND_ADD_VIDEO",
-      payload: {videoData, playlistName},
-    });
-    toast.success(`Video added to ${playlistName} playlist`);
+    addNewPlaylist(playlistName, auth.token);
+    addVideoToPlaylist(playlistName, videoData, auth.token);
     setIsSaveToPlaylistActive((prev) => !prev);
   };
 
-  const isVideoInPlaylist = (id, playlist) => {
-    const playlistObj = userDataState.playlist.filter(
-      (item) => item.name === playlist
-    );
-    return playlistObj[0].videos.some((item) => item._id === id);
-  };
-
-  const handleTogglePlaylistVideo = (id, playlist) => {
-    const isChecked = isVideoInPlaylist(id, playlist);
+  const handleTogglePlaylistVideo = (playlists, playlistId, title, videoId) => {
+    const isChecked = isVideoInPlaylist(playlists, title, videoId);
     if (isChecked) {
-      userDataDispatch({
-        type: "REMOVE_VIDEO_FROM_PLAYLIST",
-        payload: {id, playlist},
-      });
-      toast.success(`Video removed from ${playlist} playlist`);
+      removeVideoFromPlaylist(playlistId, videoId, auth.token);
     } else {
-      userDataDispatch({
-        type: "ADD_VIDEO_TO_PLAYLIST",
-        payload: {playlist, videoData},
-      });
-      toast.success(`Video added to ${playlist} playlist`);
+      addVideoToPlaylist(title, videoData, auth.token);
     }
   };
   return (
@@ -53,20 +55,30 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
           </span>
         </div>
         <div className="playlist pd-bottom-md">
-          {userDataState.playlist.map((item) => (
-            <div className="pd-bottom-md flex-center" key={item.id}>
-              <input
-                type="checkbox"
-                name={item.name}
-                id={item.name}
-                checked={isVideoInPlaylist(videoData._id, item.name)}
-                onChange={() =>
-                  handleTogglePlaylistVideo(videoData._id, item.name)
-                }
-              />
-              <label htmlFor={item.name}>{item.name}</label>
-            </div>
-          ))}
+          {allPlaylist.length > 0 &&
+            allPlaylist.map((item) => (
+              <div className="pd-bottom-md flex-center" key={item._id}>
+                <input
+                  type="checkbox"
+                  name={item.title}
+                  id={item.title}
+                  checked={isVideoInPlaylist(
+                    allPlaylist,
+                    item.title,
+                    videoData._id
+                  )}
+                  onChange={() =>
+                    handleTogglePlaylistVideo(
+                      allPlaylist,
+                      item._id,
+                      item.title,
+                      videoData._id
+                    )
+                  }
+                />
+                <label htmlFor={item.title}>{item.title}</label>
+              </div>
+            ))}
         </div>
         <div>
           {isCreateNewActive ? (

@@ -15,12 +15,14 @@ import {
   WatchLater,
   Profile,
 } from "./pages/";
+import Mockman from "mockman-js";
 
 function App() {
   return (
     <div className="App light-theme">
       <ToastContainer autoClose={1000} />
       <Routes>
+        <Route path={"/mockman"} element={<Mockman />} />
         <Route path={"/"} element={<VideoListing />} />
         <Route path={"/search"} element={<Search />} />
         <Route path={"/login"} element={<Login />} />
