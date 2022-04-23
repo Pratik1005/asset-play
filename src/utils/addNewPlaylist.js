@@ -1,14 +1,18 @@
 import axios from "axios";
 import {toast} from "react-toastify";
+import {useUserData} from "../context";
 
-const addNewPlaylist = async (playlistName, token) => {
+const addNewPlaylist = async (playlistName, token, dispatch) => {
   try {
     const response = await axios.post(
       "api/user/playlists",
       {playlist: {title: playlistName}},
       {headers: {authorization: token}}
     );
-    console.log(response);
+    dispatch({
+      type: "ADD_NEW_PLAYLIST",
+      payload: response.data.playlists,
+    });
     toast.success(`${playlistName} playlist created`);
   } catch (err) {
     toast.error("Error in creating playlist");

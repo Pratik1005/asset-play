@@ -7,23 +7,24 @@ import {NavMenu, VideoCard, Loader} from "../../components";
 const PlayList = () => {
   const {userDataState} = useUserData();
   const {auth} = useAuth();
-  const [loader, setLoader] = useState(true);
-  const [playlist, setPlaylist] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("/api/user/playlists", {
-          headers: {authorization: auth.token},
-        });
-        console.log(response);
-        setLoader(false);
-        setPlaylist(response.data.playlists);
-      } catch (err) {
-        setLoader(false);
-        console.error("Playlist", err);
-      }
-    })();
-  }, []);
+  const [loader, setLoader] = useState(false);
+  // const [playlist, setPlaylist] = useState([]);
+  const {playlist} = userDataState;
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const response = await axios.get("/api/user/playlists", {
+  //         headers: {authorization: auth.token},
+  //       });
+  //       console.log(response);
+  //       setLoader(false);
+  //       setPlaylist(response.data.playlists);
+  //     } catch (err) {
+  //       setLoader(false);
+  //       console.error("Playlist", err);
+  //     }
+  //   })();
+  // }, []);
   return (
     <section className="app-ctn">
       <NavMenu />

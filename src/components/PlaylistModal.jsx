@@ -1,6 +1,5 @@
-import axios from "axios";
 import {useState, useEffect} from "react";
-import {useAuth} from "../context";
+import {useAuth, useUserData} from "../context";
 import {
   addNewPlaylist,
   addVideoToPlaylist,
@@ -12,36 +11,30 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   const [isCreateNewActive, setIsCreateNewActive] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
   const {auth} = useAuth();
-  const [allPlaylist, setAllPlaylist] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("api/user/playlists", {
-          headers: {authorization: auth.token},
-        });
-        setAllPlaylist(response.data.playlists);
-      } catch (err) {
-        console.error("get playlist", err);
-      }
-    })();
-  }, []);
+  const {userDataState, userDataDispatch} = useUserData();
+  const {playlist} = userDataState;
 
   const handleCreateNewPlaylist = (e) => {
     e.preventDefault();
-    addNewPlaylist(playlistName, auth.token);
-    addVideoToPlaylist(playlistName, videoData, auth.token);
+    addNewPlaylist(playlistName, auth.token, userDataDispatch);
+    addVideoToPlaylist(playlistName, videoData, auth.token, userDataDispatch);
     setIsSaveToPlaylistActive((prev) => !prev);
   };
 
-  const handleTogglePlaylistVideo = (playlists, playlistId, title, videoId) => {
-    const isChecked = isVideoInPlaylist(playlists, title, videoId);
+  const handleTogglePlaylistVideo = (playlistId, title, videoId) => {
+    const isChecked = isVideoInPlaylist(playlist, title, videoId);
     if (isChecked) {
-      removeVideoFromPlaylist(playlistId, videoId, auth.token);
+      removeVideoFromPlaylist(
+        playlistId,
+        videoId,
+        auth.token,
+        userDataDispatch
+      );
     } else {
-      addVideoToPlaylist(title, videoData, auth.token);
+      addVideoToPlaylist(title, videoData, auth.token, userDataDispatch);
     }
   };
+
   return (
     <div className="playlist-overlay">
       <div className="save-playlist-ctn br-sm pd-sm">
@@ -55,21 +48,20 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
           </span>
         </div>
         <div className="playlist pd-bottom-md">
-          {allPlaylist.length > 0 &&
-            allPlaylist.map((item) => (
+          {playlist.length > 0 &&
+            playlist.map((item) => (
               <div className="pd-bottom-md flex-center" key={item._id}>
                 <input
                   type="checkbox"
                   name={item.title}
                   id={item.title}
                   checked={isVideoInPlaylist(
-                    allPlaylist,
+                    playlist,
                     item.title,
                     videoData._id
                   )}
                   onChange={() =>
                     handleTogglePlaylistVideo(
-                      allPlaylist,
                       item._id,
                       item.title,
                       videoData._id
