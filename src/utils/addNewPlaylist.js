@@ -1,6 +1,6 @@
 import axios from "axios";
 import {toast} from "react-toastify";
-import {useUserData} from "../context";
+import {USER_ACTIONS} from "../reducer";
 
 const addNewPlaylist = async (playlistName, token, dispatch) => {
   try {
@@ -10,7 +10,7 @@ const addNewPlaylist = async (playlistName, token, dispatch) => {
       {headers: {authorization: token}}
     );
     dispatch({
-      type: "ADD_NEW_PLAYLIST",
+      type: USER_ACTIONS.ADD_NEW_PLAYLIST,
       payload: response.data.playlists,
     });
     toast.success(`${playlistName} playlist created`);

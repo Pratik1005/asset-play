@@ -1,5 +1,6 @@
 import axios from "axios";
 import {toast} from "react-toastify";
+import {USER_ACTIONS} from "../reducer";
 
 const removeVideoFromPlaylist = async (
   playlistId,
@@ -14,7 +15,7 @@ const removeVideoFromPlaylist = async (
     );
     toast.success("Video removed successfully");
     dispatch({
-      type: "REMOVE_VIDEO_FROM_PLAYLIST",
+      type: USER_ACTIONS.REMOVE_VIDEO_FROM_PLAYLIST,
       payload: response.data.playlist,
     });
   } catch (err) {

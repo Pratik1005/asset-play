@@ -1,30 +1,15 @@
 import "./PlayList.css";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useState} from "react";
 import {useUserData, useAuth} from "../../context";
 import {NavMenu, VideoCard, Loader} from "../../components";
+import {deletePlaylist} from "../../utils";
 
 const PlayList = () => {
-  const {userDataState} = useUserData();
+  const {userDataState, userDataDispatch} = useUserData();
   const {auth} = useAuth();
   const [loader, setLoader] = useState(false);
-  // const [playlist, setPlaylist] = useState([]);
   const {playlist} = userDataState;
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const response = await axios.get("/api/user/playlists", {
-  //         headers: {authorization: auth.token},
-  //       });
-  //       console.log(response);
-  //       setLoader(false);
-  //       setPlaylist(response.data.playlists);
-  //     } catch (err) {
-  //       setLoader(false);
-  //       console.error("Playlist", err);
-  //     }
-  //   })();
-  // }, []);
+
   return (
     <section className="app-ctn">
       <NavMenu />
@@ -37,7 +22,17 @@ const PlayList = () => {
           )}
           {playlist.map((item) => (
             <div className="pd-bottom-lg" key={item._id}>
-              <h3 className="playlist-title pd-bottom-lg">{item.title}</h3>
+              <div className="playlist-title-ctn pd-bottom-lg">
+                <h3 className="playlist-title">{item.title}</h3>
+                <span
+                  className="material-icons cursor-pointer"
+                  onClick={() =>
+                    deletePlaylist(item._id, userDataDispatch, auth.token)
+                  }
+                >
+                  delete
+                </span>
+              </div>
               <div className="videos-ctn">
                 {item.videos.map((video) => (
                   <VideoCard cardData={video} key={video.id} />

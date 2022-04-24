@@ -17,8 +17,7 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   const handleCreateNewPlaylist = (e) => {
     e.preventDefault();
     addNewPlaylist(playlistName, auth.token, userDataDispatch);
-    addVideoToPlaylist(playlistName, videoData, auth.token, userDataDispatch);
-    setIsSaveToPlaylistActive((prev) => !prev);
+    setIsCreateNewActive((prev) => !prev);
   };
 
   const handleTogglePlaylistVideo = (playlistId, title, videoId) => {
@@ -31,7 +30,13 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
         userDataDispatch
       );
     } else {
-      addVideoToPlaylist(title, videoData, auth.token, userDataDispatch);
+      addVideoToPlaylist(
+        playlistId,
+        title,
+        videoData,
+        auth.token,
+        userDataDispatch
+      );
     }
   };
 

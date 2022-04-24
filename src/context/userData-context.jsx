@@ -16,7 +16,6 @@ const UserDataProvider = ({children}) => {
         const response = await axios.get("api/user/playlists", {
           headers: {authorization: token},
         });
-        console.log("data-context", response.data.playlists);
         userDataDispatch({
           type: "INITIAL_PLAYLIST",
           payload: response.data.playlists,
