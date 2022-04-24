@@ -1,7 +1,13 @@
+import {useState} from "react";
 import {reduceTitleLength, convertViews} from "../utils/";
+import {useUserData} from "../context";
+import {VideoOption, PlaylistModal} from "../components";
 
 const VideoCard = ({cardData}) => {
   const {thumbnail, profile, title, creator, views, date, length} = cardData;
+  const [isOptionActive, setIsOptionActive] = useState(false);
+  const {userDataState} = useUserData();
+  const [isSaveToPlaylistActive, setIsSaveToPlaylistActive] = useState(false);
   return (
     <div className="video">
       <div className="video-thumbnail">
@@ -22,9 +28,26 @@ const VideoCard = ({cardData}) => {
           </div>
         </div>
         <div className="video-option">
-          <span className="material-icons">more_vert</span>
+          <span
+            className="material-icons"
+            onClick={() => setIsOptionActive((prev) => !prev)}
+          >
+            more_vert
+          </span>
+          {isOptionActive && (
+            <VideoOption
+              setIsOptionActive={setIsOptionActive}
+              setIsSaveToPlaylistActive={setIsSaveToPlaylistActive}
+            />
+          )}
         </div>
       </div>
+      {isSaveToPlaylistActive && (
+        <PlaylistModal
+          setIsSaveToPlaylistActive={setIsSaveToPlaylistActive}
+          videoData={cardData}
+        />
+      )}
     </div>
   );
 };

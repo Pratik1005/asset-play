@@ -1,11 +1,46 @@
-import {NavMenu} from "../../components";
+import "./PlayList.css";
+import {useState} from "react";
+import {useUserData, useAuth} from "../../context";
+import {NavMenu, VideoCard, Loader} from "../../components";
+import {deletePlaylist} from "../../utils";
 
 const PlayList = () => {
+  const {userDataState, userDataDispatch} = useUserData();
+  const {auth} = useAuth();
+  const [loader, setLoader] = useState(false);
+  const {playlist} = userDataState;
+
   return (
     <section className="app-ctn">
       <NavMenu />
       <div>
-        <h2>PlayList</h2>
+        <h2 className="text-center main-title">Your Playlist</h2>
+        <div className="playlist-ctn">
+          {loader && <Loader />}
+          {playlist.length === 0 && !loader && (
+            <h3 className="text-center">You have no playlist</h3>
+          )}
+          {playlist.map((item) => (
+            <div className="pd-bottom-lg" key={item._id}>
+              <div className="playlist-title-ctn pd-bottom-lg">
+                <h3 className="playlist-title">{item.title}</h3>
+                <span
+                  className="material-icons cursor-pointer"
+                  onClick={() =>
+                    deletePlaylist(item._id, userDataDispatch, auth.token)
+                  }
+                >
+                  delete
+                </span>
+              </div>
+              <div className="videos-ctn">
+                {item.videos.map((video) => (
+                  <VideoCard cardData={video} key={video.id} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

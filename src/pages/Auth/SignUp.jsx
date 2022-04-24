@@ -48,7 +48,7 @@ const SignUp = () => {
     <section className="app-ctn">
       <NavMenu />
       <div>
-        <form className="br-md" onSubmit={handleSignUp}>
+        <form className="br-md auth-form" onSubmit={handleSignUp}>
           <h2 className="text-center mg-bottom-md">Signup</h2>
           <div className="form-control">
             <label htmlFor="first-name" className="fw-bold">
