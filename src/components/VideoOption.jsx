@@ -1,9 +1,9 @@
 import {useNavigate} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
-import {addToLikedVideos} from "../utils";
+import {addToLikedVideos, removeFromLikedVideos, isVideoLiked} from "../utils";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
-  const {userDataDispatch} = useUserData();
+  const {userDataState, userDataDispatch} = useUserData();
   const {auth} = useAuth();
   const navigate = useNavigate();
 
@@ -18,7 +18,10 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
 
   const handleLikeVideo = () => {
     if (auth.isLoggedIn) {
-      addToLikedVideos(video, auth.token, userDataDispatch);
+      isVideoLiked(userDataState.likedVideos, video._id)
+        ? removeFromLikedVideos(video._id, auth.token, userDataDispatch)
+        : addToLikedVideos(video, auth.token, userDataDispatch);
+      setIsOptionActive((prev) => !prev);
     } else {
       navigate("/login");
     }

@@ -11,7 +11,6 @@ const addToLikedVideos = async (video, token, dispatch) => {
         headers: {authorization: token},
       }
     );
-    console.log(response);
     dispatch({
       type: USER_ACTIONS.ADD_TO_LIKED_VIDEOS,
       payload: response.data.likes,

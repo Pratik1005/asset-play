@@ -1,5 +1,4 @@
 import "./PlayList.css";
-import {useState} from "react";
 import {useUserData, useAuth} from "../../context";
 import {NavMenu, VideoCard, Loader} from "../../components";
 import {deletePlaylist} from "../../utils";
@@ -7,7 +6,6 @@ import {deletePlaylist} from "../../utils";
 const PlayList = () => {
   const {userDataState, userDataDispatch} = useUserData();
   const {auth} = useAuth();
-  const [loader, setLoader] = useState(false);
   const {playlist} = userDataState;
 
   return (
@@ -16,8 +14,7 @@ const PlayList = () => {
       <div>
         <h2 className="text-center main-title">Your Playlist</h2>
         <div className="section-ctn">
-          {loader && <Loader />}
-          {playlist.length === 0 && !loader && (
+          {playlist.length === 0 && (
             <h3 className="text-center">You have no playlist</h3>
           )}
           {playlist.map((item) => (

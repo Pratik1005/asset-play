@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useUserData} from "../../context";
 import {NavMenu, VideoCard} from "../../components";
 

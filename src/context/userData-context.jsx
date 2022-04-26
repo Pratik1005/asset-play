@@ -28,6 +28,20 @@ const UserDataProvider = ({children}) => {
           console.error("get playlist", err);
         }
       })();
+
+      (async () => {
+        try {
+          const response = await axios.get("api/user/likes", {
+            headers: {authorization: token},
+          });
+          userDataDispatch({
+            type: USER_ACTIONS.INITIAL_LIKED_VIDEOS,
+            payload: response.data.likes,
+          });
+        } catch (err) {
+          console.error("get likes", err);
+        }
+      })();
     }, []);
 
   const [userDataState, userDataDispatch] = useReducer(
