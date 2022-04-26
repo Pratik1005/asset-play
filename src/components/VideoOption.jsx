@@ -1,6 +1,12 @@
 import {useNavigate} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
-import {addToLikedVideos, removeFromLikedVideos, isVideoLiked} from "../utils";
+import {
+  addToLikedVideos,
+  removeFromLikedVideos,
+  isVideoPresent,
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../utils";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataState, userDataDispatch} = useUserData();
@@ -18,9 +24,20 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
 
   const handleLikeVideo = () => {
     if (auth.isLoggedIn) {
-      isVideoLiked(userDataState.likedVideos, video._id)
+      isVideoPresent(userDataState.likedVideos, video._id)
         ? removeFromLikedVideos(video._id, auth.token, userDataDispatch)
         : addToLikedVideos(video, auth.token, userDataDispatch);
+      setIsOptionActive((prev) => !prev);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleWatchLater = () => {
+    if (auth.isLoggedIn) {
+      isVideoPresent(userDataState.watchLater, video._id)
+        ? removeFromWatchLater(video._id, auth.token, userDataDispatch)
+        : addToWatchLater(video, auth.token, userDataDispatch);
       setIsOptionActive((prev) => !prev);
     } else {
       navigate("/login");
@@ -29,7 +46,7 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   return (
     <div className="options br-sm">
       <ul>
-        <li>
+        <li onClick={handleWatchLater}>
           <span className="material-icons">watch_later</span>Save to watch later
         </li>
         <li onClick={handleSavePlaylist}>
