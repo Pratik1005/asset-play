@@ -7,3 +7,4 @@ export {getPlaylist} from "./getPlaylist";
 export {isVideoInPlaylist} from "./isVideoInPlaylist";
 export {removeVideoFromPlaylist} from "./removeVideoFromPlaylist";
 export {deletePlaylist} from "./deletePlaylist";
+export {addToLikedVideos} from "./addToLikedVideos";

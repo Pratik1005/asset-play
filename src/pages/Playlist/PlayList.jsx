@@ -15,7 +15,7 @@ const PlayList = () => {
       <NavMenu />
       <div>
         <h2 className="text-center main-title">Your Playlist</h2>
-        <div className="playlist-ctn">
+        <div className="section-ctn">
           {loader && <Loader />}
           {playlist.length === 0 && !loader && (
             <h3 className="text-center">You have no playlist</h3>

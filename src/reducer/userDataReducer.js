@@ -14,6 +14,8 @@ const userDataReducer = (state, action) => {
           item.title === action.payload.title ? action.payload : item
         ),
       };
+    case USER_ACTIONS.ADD_TO_LIKED_VIDEOS:
+      return {...state, likedVideos: [...action.payload]};
     default:
       return {state};
   }

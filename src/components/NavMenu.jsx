@@ -21,7 +21,7 @@ const NavMenu = () => {
           Playlist
         </NavLink>
         <NavLink to="/likedvideos" style={getActiveStyle} className="menu-link">
-          <span className="material-icons">favorite</span> Liked videos
+          <span className="material-icons">thumb_up</span> Liked videos
         </NavLink>
         <NavLink to="/history" style={getActiveStyle} className="menu-link">
           <span className="material-icons">history</span> History

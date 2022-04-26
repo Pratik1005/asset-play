@@ -6,6 +6,7 @@ const UserDataContext = createContext(null);
 
 const initialState = {
   playlist: [],
+  likedVideos: [],
 };
 
 const token = localStorage.getItem("token");

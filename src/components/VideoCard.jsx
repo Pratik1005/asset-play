@@ -38,6 +38,7 @@ const VideoCard = ({cardData}) => {
             <VideoOption
               setIsOptionActive={setIsOptionActive}
               setIsSaveToPlaylistActive={setIsSaveToPlaylistActive}
+              video={cardData}
             />
           )}
         </div>

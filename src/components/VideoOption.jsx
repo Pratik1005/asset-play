@@ -1,9 +1,8 @@
-import {Navigate} from "react-router-dom";
-import {useUserData} from "../context";
-import {useAuth} from "../context";
 import {useNavigate} from "react-router-dom";
+import {useAuth, useUserData} from "../context";
+import {addToLikedVideos} from "../utils";
 
-const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive}) => {
+const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataDispatch} = useUserData();
   const {auth} = useAuth();
   const navigate = useNavigate();
@@ -12,6 +11,14 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive}) => {
     if (auth.isLoggedIn) {
       setIsOptionActive((prev) => !prev);
       setIsSaveToPlaylistActive((prev) => !prev);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleLikeVideo = () => {
+    if (auth.isLoggedIn) {
+      addToLikedVideos(video, auth.token, userDataDispatch);
     } else {
       navigate("/login");
     }
@@ -25,7 +32,7 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive}) => {
         <li onClick={handleSavePlaylist}>
           <span className="material-icons">playlist_add</span>Save to playlist
         </li>
-        <li>
+        <li onClick={handleLikeVideo}>
           <span className="material-icons">thumb_up</span>Add to liked videos
         </li>
       </ul>
