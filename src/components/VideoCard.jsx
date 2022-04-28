@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {Link} from "react-router-dom";
 import {reduceTitleLength, convertViews} from "../utils/";
 import {useUserData} from "../context";
 import {VideoOption, PlaylistModal} from "../components";
@@ -10,10 +11,12 @@ const VideoCard = ({cardData}) => {
   const [isSaveToPlaylistActive, setIsSaveToPlaylistActive] = useState(false);
   return (
     <div className="video">
-      <div className="video-thumbnail">
-        <img src={thumbnail} alt="{title}" className="img-responsive" />
-        <span className="time-overlay fw-bold">{length}</span>
-      </div>
+      <Link to={`/singlevideo/${cardData._id}`}>
+        <div className="video-thumbnail">
+          <img src={thumbnail} alt="{title}" className="img-responsive" />
+          <span className="time-overlay fw-bold">{length}</span>
+        </div>
+      </Link>
       <div className="video-info">
         <img src={profile} alt="{creator}" className="br-full" />
         <div className="meta-data">
