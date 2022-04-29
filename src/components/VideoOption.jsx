@@ -1,12 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
-import {
-  addToLikedVideos,
-  removeFromLikedVideos,
-  isVideoPresent,
-  addToWatchLater,
-  removeFromWatchLater,
-} from "../utils";
+import {likeService, watchLaterService} from "../services";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataState, userDataDispatch} = useUserData();
@@ -23,25 +17,25 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   };
 
   const handleLikeVideo = () => {
-    if (auth.isLoggedIn) {
-      isVideoPresent(userDataState.likedVideos, video._id)
-        ? removeFromLikedVideos(video._id, auth.token, userDataDispatch)
-        : addToLikedVideos(video, auth.token, userDataDispatch);
-      setIsOptionActive((prev) => !prev);
-    } else {
-      navigate("/login");
-    }
+    likeService(
+      auth,
+      userDataState.likedVideos,
+      video,
+      userDataDispatch,
+      navigate
+    );
+    setIsOptionActive((prev) => !prev);
   };
 
   const handleWatchLater = () => {
-    if (auth.isLoggedIn) {
-      isVideoPresent(userDataState.watchLater, video._id)
-        ? removeFromWatchLater(video._id, auth.token, userDataDispatch)
-        : addToWatchLater(video, auth.token, userDataDispatch);
-      setIsOptionActive((prev) => !prev);
-    } else {
-      navigate("/login");
-    }
+    watchLaterService(
+      auth,
+      userDataState.watchLater,
+      video,
+      userDataDispatch,
+      navigate
+    );
+    setIsOptionActive((prev) => !prev);
   };
   return (
     <div className="options br-sm">

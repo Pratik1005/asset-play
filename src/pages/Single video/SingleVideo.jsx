@@ -3,6 +3,7 @@ import axios from "axios";
 import {useState, useEffect} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {useAuth, useUserData} from "../../context";
+import {isVideoPresent} from "../../utils";
 import {likeService, watchLaterService} from "../../services";
 import {NavMenu, PlaylistModal} from "../../components";
 
@@ -35,6 +36,10 @@ const SingleVideo = () => {
     );
   };
 
+  const handlePlaylist = () => {
+    setIsPlaylistActive((prev) => !prev);
+  };
+
   const handleWatchLater = () => {
     watchLaterService(
       auth,
@@ -59,13 +64,31 @@ const SingleVideo = () => {
         ></iframe>
         <div className="cta-icons">
           <div className="icon-text" onClick={handleLikeVideo}>
-            <span className="material-icons">thumb_up</span> LIKE
+            <span
+              className={`material-icons${
+                isVideoPresent(userDataState.likedVideos, singleVideo._id)
+                  ? ""
+                  : "-outlined"
+              }`}
+            >
+              thumb_up
+            </span>{" "}
+            LIKE
           </div>
-          <div className="icon-text">
+          <div className="icon-text" onClick={handlePlaylist}>
             <span className="material-icons">playlist_add</span> SAVE
           </div>
           <div className="icon-text" onClick={handleWatchLater}>
-            <span className="material-icons">watch_later</span> WATCH LATER
+            <span
+              className={`material-icons${
+                isVideoPresent(userDataState.watchLater, singleVideo._id)
+                  ? ""
+                  : "-outlined"
+              }`}
+            >
+              watch_later
+            </span>{" "}
+            WATCH LATER
           </div>
         </div>
         <h3 className="pd-bottom-md">{singleVideo.title}</h3>

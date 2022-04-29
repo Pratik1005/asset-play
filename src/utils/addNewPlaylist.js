@@ -5,7 +5,7 @@ import {USER_ACTIONS} from "../reducer";
 const addNewPlaylist = async (playlistName, token, dispatch) => {
   try {
     const response = await axios.post(
-      "api/user/playlists",
+      "/api/user/playlists",
       {playlist: {title: playlistName}},
       {headers: {authorization: token}}
     );

@@ -11,7 +11,7 @@ const addVideoToPlaylist = async (
 ) => {
   try {
     const response = await axios.post(
-      `api/user/playlists/${playlistId}`,
+      `/api/user/playlists/${playlistId}`,
       {video},
       {headers: {authorization: token}}
     );
