@@ -14,7 +14,7 @@ const VideoCard = ({cardData}) => {
   const navigate = useNavigate();
 
   const handleVideoClick = () => {
-    if (!isVideoPresent(userDataState.history, cardData._id)) {
+    if (auth.token && !isVideoPresent(userDataState.history, cardData._id)) {
       addToHistory(cardData, auth.token, userDataDispatch);
     }
     navigate(`/singlevideo/${cardData._id}`);
