@@ -1,3 +1,18 @@
 .single-video-ctn {
   width: 100%;
 }
+
+.cta-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.cta-icons .icon-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}

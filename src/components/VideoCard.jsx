@@ -1,13 +1,11 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {reduceTitleLength, convertViews} from "../utils/";
-import {useUserData} from "../context";
 import {VideoOption, PlaylistModal} from "../components";
 
 const VideoCard = ({cardData}) => {
   const {thumbnail, profile, title, creator, views, date, length} = cardData;
   const [isOptionActive, setIsOptionActive] = useState(false);
-  const {userDataState} = useUserData();
   const [isSaveToPlaylistActive, setIsSaveToPlaylistActive] = useState(false);
   return (
     <div className="video">

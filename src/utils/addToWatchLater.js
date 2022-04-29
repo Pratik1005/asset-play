@@ -5,7 +5,7 @@ import {USER_ACTIONS} from "../reducer";
 const addToWatchLater = async (video, token, dispatch) => {
   try {
     const response = await axios.post(
-      "api/user/watchlater",
+      "/api/user/watchlater",
       {video},
       {headers: {authorization: token}}
     );

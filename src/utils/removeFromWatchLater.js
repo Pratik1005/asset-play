@@ -4,7 +4,7 @@ import {USER_ACTIONS} from "../reducer";
 
 const removeFromWatchLater = async (videoId, token, dispatch) => {
   try {
-    const response = await axios.delete(`api/user/watchlater/${videoId}`, {
+    const response = await axios.delete(`/api/user/watchlater/${videoId}`, {
       headers: {authorization: token},
     });
     dispatch({

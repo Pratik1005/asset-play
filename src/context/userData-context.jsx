@@ -18,7 +18,7 @@ const UserDataProvider = ({children}) => {
       (async () => {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("api/user/playlists", {
+          const response = await axios.get("/api/user/playlists", {
             headers: {authorization: token},
           });
           userDataDispatch({
@@ -32,7 +32,7 @@ const UserDataProvider = ({children}) => {
 
       (async () => {
         try {
-          const response = await axios.get("api/user/likes", {
+          const response = await axios.get("/api/user/likes", {
             headers: {authorization: token},
           });
           userDataDispatch({
@@ -46,7 +46,7 @@ const UserDataProvider = ({children}) => {
 
       (async () => {
         try {
-          const response = await axios.get("api/user/watchlater", {
+          const response = await axios.get("/api/user/watchlater", {
             headers: {authorization: token},
           });
           userDataDispatch({

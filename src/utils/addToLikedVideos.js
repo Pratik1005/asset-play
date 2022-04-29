@@ -5,7 +5,7 @@ import {USER_ACTIONS} from "../reducer";
 const addToLikedVideos = async (video, token, dispatch) => {
   try {
     const response = await axios.post(
-      "api/user/likes",
+      "/api/user/likes",
       {video},
       {
         headers: {authorization: token},
