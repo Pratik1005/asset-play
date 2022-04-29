@@ -10,7 +10,7 @@ const addToWatchLater = async (video, token, dispatch) => {
       {headers: {authorization: token}}
     );
     dispatch({
-      type: USER_ACTIONS.ADD_TO_WATCH_LATER,
+      type: USER_ACTIONS.WATCH_LATER_ACTIONS,
       payload: response.data.watchlater,
     });
     toast.success("Added to watch later");

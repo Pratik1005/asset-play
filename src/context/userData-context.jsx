@@ -37,7 +37,7 @@ const UserDataProvider = ({children}) => {
             headers: {authorization: token},
           });
           userDataDispatch({
-            type: USER_ACTIONS.INITIAL_LIKED_VIDEOS,
+            type: USER_ACTIONS.LIKED_VIDEOS_ACTIONS,
             payload: response.data.likes,
           });
         } catch (err) {
@@ -51,7 +51,7 @@ const UserDataProvider = ({children}) => {
             headers: {authorization: token},
           });
           userDataDispatch({
-            type: USER_ACTIONS.INITIAL_WATCH_LATER,
+            type: USER_ACTIONS.WATCH_LATER_ACTIONS,
             payload: response.data.watchlater,
           });
         } catch (err) {
@@ -65,7 +65,7 @@ const UserDataProvider = ({children}) => {
             headers: {authorization: token},
           });
           userDataDispatch({
-            type: USER_ACTIONS.INITIAL_HISTORY,
+            type: USER_ACTIONS.HISTORY_ACTIONS,
             payload: response.data.history,
           });
         } catch (err) {

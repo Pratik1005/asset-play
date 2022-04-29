@@ -8,7 +8,7 @@ const removeFromLikedVideos = async (videoId, token, dispatch) => {
       headers: {authorization: token},
     });
     dispatch({
-      type: USER_ACTIONS.REMOVE_FROM_LIKED_VIDEOS,
+      type: USER_ACTIONS.LIKED_VIDEOS_ACTIONS,
       payload: response.data.likes,
     });
     toast.success("Removed from liked video");

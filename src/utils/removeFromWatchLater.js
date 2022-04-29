@@ -8,7 +8,7 @@ const removeFromWatchLater = async (videoId, token, dispatch) => {
       headers: {authorization: token},
     });
     dispatch({
-      type: USER_ACTIONS.REMOVE_FROM_WATCH_LATER,
+      type: USER_ACTIONS.WATCH_LATER_ACTIONS,
       payload: response.data.watchlater,
     });
     toast.success("Removed from watch later");

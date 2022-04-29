@@ -12,7 +12,7 @@ const addToLikedVideos = async (video, token, dispatch) => {
       }
     );
     dispatch({
-      type: USER_ACTIONS.ADD_TO_LIKED_VIDEOS,
+      type: USER_ACTIONS.LIKED_VIDEOS_ACTIONS,
       payload: response.data.likes,
     });
     toast.success("Added to liked videos");

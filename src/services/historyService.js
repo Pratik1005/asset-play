@@ -12,7 +12,7 @@ const addToHistory = async (video, token, userDataDispatch) => {
       }
     );
     userDataDispatch({
-      type: USER_ACTIONS.ADD_TO_HISTORY,
+      type: USER_ACTIONS.HISTORY_ACTIONS,
       payload: response.data.history,
     });
   } catch (err) {
