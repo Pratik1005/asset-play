@@ -10,7 +10,7 @@ const removeVideoFromPlaylist = async (
 ) => {
   try {
     const response = await axios.delete(
-      `api/user/playlists/${playlistId}/${videoId}`,
+      `/api/user/playlists/${playlistId}/${videoId}`,
       {headers: {authorization: token}}
     );
     toast.success("Video removed successfully");

@@ -8,6 +8,7 @@ const initialState = {
   playlist: [],
   likedVideos: [],
   watchLater: [],
+  history: [],
 };
 
 const token = localStorage.getItem("token");
@@ -18,7 +19,7 @@ const UserDataProvider = ({children}) => {
       (async () => {
         const token = localStorage.getItem("token");
         try {
-          const response = await axios.get("api/user/playlists", {
+          const response = await axios.get("/api/user/playlists", {
             headers: {authorization: token},
           });
           userDataDispatch({
@@ -32,11 +33,11 @@ const UserDataProvider = ({children}) => {
 
       (async () => {
         try {
-          const response = await axios.get("api/user/likes", {
+          const response = await axios.get("/api/user/likes", {
             headers: {authorization: token},
           });
           userDataDispatch({
-            type: USER_ACTIONS.INITIAL_LIKED_VIDEOS,
+            type: USER_ACTIONS.LIKED_VIDEOS_ACTIONS,
             payload: response.data.likes,
           });
         } catch (err) {
@@ -46,15 +47,29 @@ const UserDataProvider = ({children}) => {
 
       (async () => {
         try {
-          const response = await axios.get("api/user/watchlater", {
+          const response = await axios.get("/api/user/watchlater", {
             headers: {authorization: token},
           });
           userDataDispatch({
-            type: USER_ACTIONS.INITIAL_WATCH_LATER,
+            type: USER_ACTIONS.WATCH_LATER_ACTIONS,
             payload: response.data.watchlater,
           });
         } catch (err) {
           console.error("get watchlater", err);
+        }
+      })();
+
+      (async () => {
+        try {
+          const response = await axios.get("/api/user/history", {
+            headers: {authorization: token},
+          });
+          userDataDispatch({
+            type: USER_ACTIONS.HISTORY_ACTIONS,
+            payload: response.data.history,
+          });
+        } catch (err) {
+          console.error("get history", err);
         }
       })();
     }, []);

@@ -4,11 +4,11 @@ import {USER_ACTIONS} from "../reducer";
 
 const removeFromLikedVideos = async (videoId, token, dispatch) => {
   try {
-    const response = await axios.delete(`api/user/likes/${videoId}`, {
+    const response = await axios.delete(`/api/user/likes/${videoId}`, {
       headers: {authorization: token},
     });
     dispatch({
-      type: USER_ACTIONS.REMOVE_FROM_LIKED_VIDEOS,
+      type: USER_ACTIONS.LIKED_VIDEOS_ACTIONS,
       payload: response.data.likes,
     });
     toast.success("Removed from liked video");

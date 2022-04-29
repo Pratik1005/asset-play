@@ -1,17 +1,12 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
-import {
-  addToLikedVideos,
-  removeFromLikedVideos,
-  isVideoPresent,
-  addToWatchLater,
-  removeFromWatchLater,
-} from "../utils";
+import {likeService, watchLaterService, removeFromHistory} from "../services";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataState, userDataDispatch} = useUserData();
   const {auth} = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSavePlaylist = () => {
     if (auth.isLoggedIn) {
@@ -23,25 +18,29 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   };
 
   const handleLikeVideo = () => {
-    if (auth.isLoggedIn) {
-      isVideoPresent(userDataState.likedVideos, video._id)
-        ? removeFromLikedVideos(video._id, auth.token, userDataDispatch)
-        : addToLikedVideos(video, auth.token, userDataDispatch);
-      setIsOptionActive((prev) => !prev);
-    } else {
-      navigate("/login");
-    }
+    likeService(
+      auth,
+      userDataState.likedVideos,
+      video,
+      userDataDispatch,
+      navigate
+    );
+    setIsOptionActive((prev) => !prev);
   };
 
   const handleWatchLater = () => {
-    if (auth.isLoggedIn) {
-      isVideoPresent(userDataState.watchLater, video._id)
-        ? removeFromWatchLater(video._id, auth.token, userDataDispatch)
-        : addToWatchLater(video, auth.token, userDataDispatch);
-      setIsOptionActive((prev) => !prev);
-    } else {
-      navigate("/login");
-    }
+    watchLaterService(
+      auth,
+      userDataState.watchLater,
+      video,
+      userDataDispatch,
+      navigate
+    );
+    setIsOptionActive((prev) => !prev);
+  };
+
+  const handleRemoveVideo = () => {
+    removeFromHistory(video._id, auth.token, userDataDispatch);
   };
   return (
     <div className="options br-sm">
@@ -55,6 +54,11 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
         <li onClick={handleLikeVideo}>
           <span className="material-icons">thumb_up</span>Add to liked videos
         </li>
+        {location.pathname === "/history" && (
+          <li onClick={handleRemoveVideo}>
+            <span className="material-icons">delete</span>Remove video
+          </li>
+        )}
       </ul>
     </div>
   );

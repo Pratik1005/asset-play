@@ -4,11 +4,11 @@ import {USER_ACTIONS} from "../reducer";
 
 const removeFromWatchLater = async (videoId, token, dispatch) => {
   try {
-    const response = await axios.delete(`api/user/watchlater/${videoId}`, {
+    const response = await axios.delete(`/api/user/watchlater/${videoId}`, {
       headers: {authorization: token},
     });
     dispatch({
-      type: USER_ACTIONS.REMOVE_FROM_WATCH_LATER,
+      type: USER_ACTIONS.WATCH_LATER_ACTIONS,
       payload: response.data.watchlater,
     });
     toast.success("Removed from watch later");

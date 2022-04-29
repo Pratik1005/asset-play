@@ -1,6 +1,6 @@
 @import "https://litespeedui.netlify.app/components/components.css";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Parisienne&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 
 ul {
@@ -106,7 +106,7 @@ aside nav span.material-icons {
   font-size: 14px;
 }
 
-.meta-data .views-date-info {
+.views-date-info {
   display: flex;
   gap: 5px;
   font-size: 14px;
@@ -142,6 +142,14 @@ aside nav span.material-icons {
 .options ul li:hover {
   background-color: var(--light-gray);
   border-radius: 5px;
+}
+
+/* History */
+.clear-history {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 2rem;
 }
 
 /* footer */

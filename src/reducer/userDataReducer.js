@@ -14,14 +14,12 @@ const userDataReducer = (state, action) => {
           item.title === action.payload.title ? action.payload : item
         ),
       };
-    case USER_ACTIONS.INITIAL_LIKED_VIDEOS:
-    case USER_ACTIONS.ADD_TO_LIKED_VIDEOS:
-    case USER_ACTIONS.REMOVE_FROM_LIKED_VIDEOS:
+    case USER_ACTIONS.LIKED_VIDEOS_ACTIONS:
       return {...state, likedVideos: [...action.payload]};
-    case USER_ACTIONS.INITIAL_WATCH_LATER:
-    case USER_ACTIONS.ADD_TO_WATCH_LATER:
-    case USER_ACTIONS.REMOVE_FROM_WATCH_LATER:
+    case USER_ACTIONS.WATCH_LATER_ACTIONS:
       return {...state, watchLater: [...action.payload]};
+    case USER_ACTIONS.HISTORY_ACTIONS:
+      return {...state, history: [...action.payload]};
     default:
       return {state};
   }
