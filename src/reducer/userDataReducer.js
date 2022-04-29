@@ -22,6 +22,9 @@ const userDataReducer = (state, action) => {
     case USER_ACTIONS.ADD_TO_WATCH_LATER:
     case USER_ACTIONS.REMOVE_FROM_WATCH_LATER:
       return {...state, watchLater: [...action.payload]};
+    case USER_ACTIONS.INITIAL_HISTORY:
+    case USER_ACTIONS.ADD_TO_HISTORY:
+      return {...state, history: [...action.payload]};
     default:
       return {state};
   }

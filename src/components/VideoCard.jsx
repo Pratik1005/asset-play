@@ -1,24 +1,37 @@
 import {useState} from "react";
-import {Link} from "react-router-dom";
-import {reduceTitleLength, convertViews} from "../utils/";
+import {useNavigate} from "react-router-dom";
+import {useAuth, useUserData} from "../context";
+import {reduceTitleLength, convertViews, isVideoPresent} from "../utils/";
+import {addToHistory} from "../services";
 import {VideoOption, PlaylistModal} from "../components";
 
 const VideoCard = ({cardData}) => {
   const {thumbnail, profile, title, creator, views, date, length} = cardData;
   const [isOptionActive, setIsOptionActive] = useState(false);
   const [isSaveToPlaylistActive, setIsSaveToPlaylistActive] = useState(false);
+  const {auth} = useAuth();
+  const {userDataState, userDataDispatch} = useUserData();
+  const navigate = useNavigate();
+
+  const handleVideoClick = () => {
+    if (!isVideoPresent(userDataState.history, cardData._id)) {
+      addToHistory(cardData, auth.token, userDataDispatch);
+    }
+    navigate(`/singlevideo/${cardData._id}`);
+  };
   return (
-    <div className="video">
-      <Link to={`/singlevideo/${cardData._id}`}>
-        <div className="video-thumbnail">
-          <img src={thumbnail} alt="{title}" className="img-responsive" />
-          <span className="time-overlay fw-bold">{length}</span>
-        </div>
-      </Link>
+    <div className="video cursor-pointer">
+      <div className="video-thumbnail" onClick={handleVideoClick}>
+        <img src={thumbnail} alt="{title}" className="img-responsive" />
+        <span className="time-overlay fw-bold">{length}</span>
+      </div>
       <div className="video-info">
         <img src={profile} alt="{creator}" className="br-full" />
         <div className="meta-data">
-          <h5 className="fw-bold pd-bottom-sm video-title">
+          <h5
+            className="fw-bold pd-bottom-sm video-title"
+            onClick={handleVideoClick}
+          >
             {reduceTitleLength(title)}
           </h5>
           <p className="pd-bottom-sm creator">{creator}</p>

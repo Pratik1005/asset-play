@@ -8,6 +8,7 @@ const initialState = {
   playlist: [],
   likedVideos: [],
   watchLater: [],
+  history: [],
 };
 
 const token = localStorage.getItem("token");
@@ -55,6 +56,20 @@ const UserDataProvider = ({children}) => {
           });
         } catch (err) {
           console.error("get watchlater", err);
+        }
+      })();
+
+      (async () => {
+        try {
+          const response = await axios.get("/api/user/history", {
+            headers: {authorization: token},
+          });
+          userDataDispatch({
+            type: USER_ACTIONS.INITIAL_HISTORY,
+            payload: response.data.history,
+          });
+        } catch (err) {
+          console.error("get history", err);
         }
       })();
     }, []);
