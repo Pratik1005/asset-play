@@ -1,11 +1,12 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
-import {likeService, watchLaterService} from "../services";
+import {likeService, watchLaterService, removeFromHistory} from "../services";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataState, userDataDispatch} = useUserData();
   const {auth} = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSavePlaylist = () => {
     if (auth.isLoggedIn) {
@@ -37,6 +38,10 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
     );
     setIsOptionActive((prev) => !prev);
   };
+
+  const handleRemoveVideo = () => {
+    removeFromHistory(video._id, auth.token, userDataDispatch);
+  };
   return (
     <div className="options br-sm">
       <ul>
@@ -49,6 +54,11 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
         <li onClick={handleLikeVideo}>
           <span className="material-icons">thumb_up</span>Add to liked videos
         </li>
+        {location.pathname === "/history" && (
+          <li onClick={handleRemoveVideo}>
+            <span className="material-icons">delete</span>Remove video
+          </li>
+        )}
       </ul>
     </div>
   );

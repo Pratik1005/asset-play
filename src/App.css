@@ -144,6 +144,14 @@ aside nav span.material-icons {
   border-radius: 5px;
 }
 
+/* History */
+.clear-history {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 2rem;
+}
+
 /* footer */
 footer {
   display: flex;
