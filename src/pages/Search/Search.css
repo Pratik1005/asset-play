@@ -14,3 +14,7 @@
 .search-bar input.search-input {
   border: none;
 }
+
+.result-text {
+  color: var(--text-color);
+}

@@ -1,8 +1,19 @@
 .light-theme {
   --menu-background: #f7f7f7;
   --text-color: #282828;
-  --menu-hover: #EDE9FE;
-  --primary-color: #6D28D9;
+  --menu-hover: #ede9fe;
+  --primary-color: #6d28d9;
   --body-background: #f2f2f2;
   --chip-active-color: #fff;
+  --profile-ctn-background: #fff;
+}
+
+.dark-theme {
+  --menu-background: #171923;
+  --text-color: #ffffffeb;
+  --menu-hover: #2d3748;
+  --primary-color: #6d28d9;
+  --body-background: #1a202c;
+  --chip-active-color: #fff;
+  --profile-ctn-background: #2d3748;
 }

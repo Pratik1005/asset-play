@@ -1,9 +1,11 @@
 .main-title {
   padding-top: 1.5rem;
+  color: var(--text-color);
 }
 
 .section-ctn {
   padding: 1.5rem 2rem 2rem;
+  color: var(--text-color);
 }
 
 .playlist-title-ctn {

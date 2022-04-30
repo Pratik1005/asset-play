@@ -42,7 +42,7 @@ const Search = () => {
           />
         </div>
         {searchInput.length > 0 && searchResult.length === 0 && (
-          <h3 className="text-center">No videos found!</h3>
+          <h3 className="text-center result-text">No videos found!</h3>
         )}
         <div className="videos-ctn section-ctn">
           {searchInput.length > 0 &&

@@ -1,9 +1,20 @@
 import {NavLink} from "react-router-dom";
+import {useEffect} from "react";
+import {useTheme} from "../context";
 
 const getActiveStyle = ({isActive}) =>
   isActive ? {backgroundColor: "var(--menu-hover)"} : null;
 
 const NavMenu = () => {
+  const {theme, setTheme} = useTheme();
+
+  useEffect(() => {
+    localStorage.setItem("themeState", theme);
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
+  };
   return (
     <aside className="pd-sm">
       <div>
@@ -30,9 +41,18 @@ const NavMenu = () => {
           <span className="material-icons">watch_later</span>
           Watch later
         </NavLink>
-        <div className="menu-link">
-          <span className="material-icons">dark_mode</span>
-          Dark mode
+        <div className="menu-link" onClick={handleTheme}>
+          {theme === "light-theme" ? (
+            <>
+              <span className="material-icons">dark_mode</span>
+              <span>Dark mode</span>
+            </>
+          ) : (
+            <>
+              <span className="material-icons">light_mode</span>
+              <span>Light mode</span>
+            </>
+          )}
         </div>
         <NavLink to="/profile" style={getActiveStyle} className="menu-link">
           <span className="material-icons">account_circle</span> Profile

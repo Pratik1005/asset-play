@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {ToastContainer} from "react-toastify";
 import {Routes, Route} from "react-router-dom";
 import {RequiresAuth} from "./utils";
+import {useTheme} from "./context";
 import {
   VideoListing,
   Search,
@@ -19,8 +20,9 @@ import {
 import Mockman from "mockman-js";
 
 function App() {
+  const {theme} = useTheme();
   return (
-    <div className="App light-theme">
+    <div className={`App ${theme}`}>
       <ToastContainer autoClose={1000} />
       <Routes>
         <Route path={"/mockman"} element={<Mockman />} />

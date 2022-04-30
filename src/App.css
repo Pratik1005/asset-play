@@ -114,6 +114,7 @@ aside nav span.material-icons {
 
 .video {
   position: relative;
+  color: var(--text-color);
 }
 
 .video-option span.material-icons {
@@ -141,6 +142,7 @@ aside nav span.material-icons {
 
 .options ul li:hover {
   background-color: var(--light-gray);
+  color: var(--clr-txt-dark);
   border-radius: 5px;
 }
 

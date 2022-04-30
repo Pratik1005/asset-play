@@ -1,5 +1,6 @@
 .single-video-ctn {
   width: 100%;
+  color: var(--text-color);
 }
 
 .cta-icons {
@@ -21,4 +22,5 @@
 .icon-text:hover {
   background-color: var(--light-gray);
   border-radius: 5px;
+  color: var(--clr-txt-dark);
 }
