@@ -1,0 +1,16 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--light-gray);
+  background-color: var(--clr-white);
+  margin: 2rem 2rem 1rem;
+}
+
+.search-icon {
+  padding: 0 14px;
+}
+
+.search-bar input.search-input {
+  border: none;
+}
