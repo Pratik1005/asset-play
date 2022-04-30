@@ -29,6 +29,7 @@ const Login = () => {
     setLoginData({email: email, password: password});
     try {
       const response = await axios.post("/api/auth/login", {email, password});
+      localStorage.setItem("userData", JSON.stringify(response.data.foundUser));
       localStorage.setItem("token", response.data.encodedToken);
       setAuth({token: response.data.encodedToken, isLoggedIn: true});
       toast.success("You have logged in");
