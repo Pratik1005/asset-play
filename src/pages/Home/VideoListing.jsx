@@ -1,15 +1,13 @@
 import "./VideoListing.css";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import {useUserData} from "../../context";
-import {NavMenu, VideoCard, Loader, PlaylistModal} from "../../components";
+import {NavMenu, VideoCard, Loader, MobileHeader} from "../../components";
 
 const VideoListing = () => {
   const [videos, setVideos] = useState([]);
   const [categoryVideos, setCategoryVideos] = useState([]);
   const [loader, setLoader] = useState(true);
   const [currentCategory, setCurrentCategory] = useState("All");
-  const {userDataState} = useUserData();
   const videoCategory = [
     "Stock Investing",
     "Real Estate",
@@ -51,6 +49,7 @@ const VideoListing = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div className="video-list-ctn">
         <div className="chips-ctn pd-sm">
@@ -77,7 +76,6 @@ const VideoListing = () => {
           ))}
         </div>
       </div>
-      {/* {userDataState.isSaveToPlaylistClicked && <PlaylistModal />} */}
     </section>
   );
 };

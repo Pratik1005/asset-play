@@ -1,11 +1,12 @@
 form.auth-form {
-  background-color: var(--clr-white);
+  background-color: var(--profile-ctn-background);
   padding: 2rem 4rem;
   width: 100%;
   border-radius: 8px;
   margin: 4rem auto;
   max-width: 31.25rem;
   box-shadow: var(--light-shadow);
+  color: var(--text-color);
 }
 
 .form-control {

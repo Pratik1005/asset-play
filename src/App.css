@@ -23,6 +23,13 @@ ul {
   background-color: var(--body-background);
 }
 
+/* mobile header */
+header {
+  display: none;
+  background-color: var(--menu-background);
+  color: var(--text-color);
+}
+
 aside {
   position: sticky;
   display: flex;
@@ -172,4 +179,31 @@ footer .footer-links a {
 
 footer p.copyright {
   font-size: 14px;
+}
+
+@media screen and (max-width: 800px) {
+  .app-ctn {
+    display: block;
+  }
+
+  aside {
+    position: fixed;
+    left: 0;
+    transform: translate(-100%);
+    z-index: 1;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+  }
+
+  header span.menu {
+    font-size: 2.5rem;
+    padding-right: 2rem;
+  }
+
+  header h1.logo {
+    font-family: "Parisienne", cursive;
+  }
 }
