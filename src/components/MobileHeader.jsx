@@ -1,5 +1,11 @@
+import {useMobileMenu} from "../context";
+
 const MobileHeader = () => {
-  const handleMenu = () => {};
+  const {setMobileMenuToggle} = useMobileMenu();
+
+  const handleMenu = () => {
+    setMobileMenuToggle((prev) => !prev);
+  };
   return (
     <header className="pd-xs">
       <span className="material-icons menu cursor-pointer" onClick={handleMenu}>

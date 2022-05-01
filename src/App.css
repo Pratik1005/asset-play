@@ -45,6 +45,13 @@ aside h1.logo {
   color: var(--primary-color);
 }
 
+aside span.mobile-menu-close {
+  display: none;
+  color: var(--text-color);
+  padding-left: 2rem;
+  font-size: 2.5rem;
+}
+
 aside nav.side-menu {
   display: flex;
   flex-direction: column;
@@ -190,7 +197,12 @@ footer p.copyright {
     position: fixed;
     left: 0;
     transform: translate(-100%);
+    transition: transform 0.3s linear;
     z-index: 1;
+  }
+
+  aside.show-menu {
+    transform: translate(0);
   }
 
   header {
@@ -205,5 +217,9 @@ footer p.copyright {
 
   header h1.logo {
     font-family: "Parisienne", cursive;
+  }
+
+  aside span.mobile-menu-close {
+    display: block;
   }
 }

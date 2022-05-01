@@ -17,12 +17,14 @@ import {
   Profile,
   SingleVideo,
 } from "./pages/";
+import {ScrollToTop} from "./components";
 import Mockman from "mockman-js";
 
 function App() {
   const {theme} = useTheme();
   return (
     <div className={`App ${theme}`}>
+      <ScrollToTop />
       <ToastContainer autoClose={1000} />
       <Routes>
         <Route path={"/mockman"} element={<Mockman />} />

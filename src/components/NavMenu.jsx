@@ -1,12 +1,13 @@
 import {NavLink} from "react-router-dom";
 import {useEffect} from "react";
-import {useTheme} from "../context";
+import {useTheme, useMobileMenu} from "../context";
 
 const getActiveStyle = ({isActive}) =>
   isActive ? {backgroundColor: "var(--menu-hover)"} : null;
 
 const NavMenu = () => {
   const {theme, setTheme} = useTheme();
+  const {mobileMenuToggle, setMobileMenuToggle} = useMobileMenu();
 
   useEffect(() => {
     localStorage.setItem("themeState", theme);
@@ -16,9 +17,15 @@ const NavMenu = () => {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
   };
   return (
-    <aside className="pd-sm">
-      <div>
-        <h1 className="logo">AssetPlay</h1>
+    <aside className={`pd-sm ${mobileMenuToggle ? "show-menu" : ""}`}>
+      <div className="flex-center">
+        <h1 className="logo pd-bottom-md">AssetPlay</h1>
+        <span
+          className="material-icons mobile-menu-close cursor-pointer"
+          onClick={() => setMobileMenuToggle((prev) => !prev)}
+        >
+          close
+        </span>
       </div>
       <nav className="side-menu">
         <NavLink style={getActiveStyle} className="menu-link" to="/">
