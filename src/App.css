@@ -198,6 +198,7 @@ footer p.copyright {
   aside {
     position: fixed;
     left: 0;
+    height: 100%;
     transform: translate(-100%);
     transition: transform 0.3s linear;
     z-index: 1;
@@ -224,5 +225,9 @@ footer p.copyright {
 
   aside span.mobile-menu-close {
     display: block;
+  }
+
+  .videos-ctn {
+    grid-template-columns: 1fr;
   }
 }
