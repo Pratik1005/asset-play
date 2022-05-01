@@ -5,7 +5,7 @@ import {useParams, useNavigate} from "react-router-dom";
 import {useAuth, useUserData} from "../../context";
 import {isVideoPresent} from "../../utils";
 import {likeService, watchLaterService} from "../../services";
-import {NavMenu, PlaylistModal} from "../../components";
+import {NavMenu, PlaylistModal, MobileHeader} from "../../components";
 
 const SingleVideo = () => {
   const [singleVideo, setSingleVideo] = useState({});
@@ -51,6 +51,7 @@ const SingleVideo = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div className="single-video-ctn pd-lg">
         <iframe
