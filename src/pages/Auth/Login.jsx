@@ -2,7 +2,7 @@ import "./Auth.css";
 import {useState} from "react";
 import {useNavigate, Link, useLocation} from "react-router-dom";
 import {toast} from "react-toastify";
-import {NavMenu} from "../../components";
+import {NavMenu, MobileHeader} from "../../components";
 import {useAuth} from "../../context";
 import axios from "axios";
 
@@ -42,6 +42,7 @@ const Login = () => {
 
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <form

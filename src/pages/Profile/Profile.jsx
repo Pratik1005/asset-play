@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../context";
 import jhon from "../../assets/jhon.jpg";
-import {NavMenu} from "../../components";
+import {NavMenu, MobileHeader} from "../../components";
 
 const Profile = () => {
   const [userData, setUserData] = useState({});
@@ -22,6 +22,7 @@ const Profile = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div className="section-ctn">
         <h2 className="text-center">Profile</h2>

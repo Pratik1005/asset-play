@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {toast} from "react-toastify";
 import axios from "axios";
-import {NavMenu} from "../../components";
+import {NavMenu, MobileHeader} from "../../components";
 import {useAuth} from "../../context";
 
 const SignUp = () => {
@@ -46,6 +46,7 @@ const SignUp = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <form className="br-md auth-form" onSubmit={handleSignUp}>

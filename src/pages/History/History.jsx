@@ -1,6 +1,6 @@
 import {useAuth, useUserData} from "../../context";
 import {clearAllHistory} from "../../services";
-import {NavMenu, VideoCard} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 
 const History = () => {
   const {userDataState, userDataDispatch} = useUserData();
@@ -11,6 +11,7 @@ const History = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <h2 className="text-center main-title">History</h2>

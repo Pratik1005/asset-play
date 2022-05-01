@@ -1,6 +1,6 @@
 import "./Search.css";
 import {useState, useEffect} from "react";
-import {NavMenu, VideoCard} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 import axios from "axios";
 
 const Search = () => {
@@ -29,6 +29,7 @@ const Search = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <div className="search-bar br-sm">

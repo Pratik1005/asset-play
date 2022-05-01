@@ -16,6 +16,10 @@ const NavMenu = () => {
   const handleTheme = () => {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
   };
+
+  const handleToggleMenu = () => {
+    setMobileMenuToggle((prev) => !prev);
+  };
   return (
     <aside className={`pd-sm ${mobileMenuToggle ? "show-menu" : ""}`}>
       <div className="flex-center">
@@ -27,7 +31,7 @@ const NavMenu = () => {
           close
         </span>
       </div>
-      <nav className="side-menu">
+      <nav className="side-menu" onClick={handleToggleMenu}>
         <NavLink style={getActiveStyle} className="menu-link" to="/">
           <span className="material-icons">home</span> Home
         </NavLink>

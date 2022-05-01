@@ -1,6 +1,6 @@
 import "./PlayList.css";
 import {useUserData, useAuth} from "../../context";
-import {NavMenu, VideoCard, Loader} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 import {deletePlaylist} from "../../utils";
 
 const PlayList = () => {
@@ -10,6 +10,7 @@ const PlayList = () => {
 
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <h2 className="text-center main-title">Your Playlist</h2>

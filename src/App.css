@@ -191,6 +191,8 @@ footer p.copyright {
 @media screen and (max-width: 800px) {
   .app-ctn {
     display: block;
+    min-height: 100vh;
+    height: 100%;
   }
 
   aside {
@@ -217,6 +219,7 @@ footer p.copyright {
 
   header h1.logo {
     font-family: "Parisienne", cursive;
+    color: var(--primary-color);
   }
 
   aside span.mobile-menu-close {
