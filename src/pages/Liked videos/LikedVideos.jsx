@@ -1,10 +1,11 @@
 import {useUserData} from "../../context";
-import {NavMenu, VideoCard} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 
 const LikedVideos = () => {
   const {userDataState} = useUserData();
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <h2 className="text-center main-title">Your Liked Videos</h2>

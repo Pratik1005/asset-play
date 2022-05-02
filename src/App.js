@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {ToastContainer} from "react-toastify";
 import {Routes, Route} from "react-router-dom";
 import {RequiresAuth} from "./utils";
+import {useTheme} from "./context";
 import {
   VideoListing,
   Search,
@@ -15,12 +16,16 @@ import {
   WatchLater,
   Profile,
   SingleVideo,
+  PageNotFound,
 } from "./pages/";
+import {ScrollToTop} from "./components";
 import Mockman from "mockman-js";
 
 function App() {
+  const {theme} = useTheme();
   return (
-    <div className="App light-theme">
+    <div className={`App ${theme}`}>
+      <ScrollToTop />
       <ToastContainer autoClose={1000} />
       <Routes>
         <Route path={"/mockman"} element={<Mockman />} />
@@ -30,6 +35,7 @@ function App() {
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/forgotpassword"} element={<ForgotPassword />} />
         <Route path={"/singlevideo/:videoId"} element={<SingleVideo />} />
+        <Route path={"*"} element={<PageNotFound />} />
         <Route
           path={"/playlist"}
           element={

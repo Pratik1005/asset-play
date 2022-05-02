@@ -1,10 +1,11 @@
-import {NavMenu, VideoCard} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 import {useUserData} from "../../context";
 
 const WatchLater = () => {
   const {userDataState} = useUserData();
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <h2 className="text-center main-title">Watch Later</h2>

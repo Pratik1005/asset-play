@@ -1,10 +1,11 @@
 import "./Auth.css";
 import {Link} from "react-router-dom";
-import {NavMenu} from "../../components";
+import {NavMenu, MobileHeader} from "../../components";
 
 const ForgotPassword = () => {
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <form className="auth-form br-md">
@@ -18,7 +19,7 @@ const ForgotPassword = () => {
               id="email"
               name="email"
               placeholder="name@gmail.com"
-              autocomplete="off"
+              autoComplete="off"
             />
           </div>
           <div className="form-control">

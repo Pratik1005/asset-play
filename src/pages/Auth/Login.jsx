@@ -2,7 +2,7 @@ import "./Auth.css";
 import {useState} from "react";
 import {useNavigate, Link, useLocation} from "react-router-dom";
 import {toast} from "react-toastify";
-import {NavMenu} from "../../components";
+import {NavMenu, MobileHeader} from "../../components";
 import {useAuth} from "../../context";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleEmail = (e) => {
     setLoginData((prev) => ({...prev, email: e.target.value}));
@@ -24,9 +25,13 @@ const Login = () => {
     setLoginData((prev) => ({...prev, password: e.target.value}));
   };
 
+  const handleShowPassword = () => {
+    setIsPasswordVisible((prev) => !prev);
+  };
+
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
-    setLoginData({email: email, password: password});
+    setLoginData({email, password});
     try {
       const response = await axios.post("/api/auth/login", {email, password});
       localStorage.setItem("userData", JSON.stringify(response.data.foundUser));
@@ -42,6 +47,7 @@ const Login = () => {
 
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <form
@@ -69,7 +75,7 @@ const Login = () => {
               Password
             </label>
             <input
-              type="password"
+              type={isPasswordVisible ? "text" : "password"}
               name="password"
               id="password"
               required
@@ -77,6 +83,16 @@ const Login = () => {
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
               onChange={(e) => handlePassword(e)}
             />
+            <span
+              className="hide-password cursor-pointer"
+              onClick={handleShowPassword}
+            >
+              {isPasswordVisible ? (
+                <span className="material-icons">visibility_off</span>
+              ) : (
+                <span className="material-icons">visibility</span>
+              )}
+            </span>
           </div>
           <div className="form-control">
             <input type="checkbox" id="remember-me" name="checkbox" />

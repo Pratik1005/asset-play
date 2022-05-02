@@ -9,3 +9,4 @@ export {History} from "./History/History";
 export {WatchLater} from "./Watch later/WatchLater";
 export {Profile} from "./Profile/Profile";
 export {SingleVideo} from "./Single video/SingleVideo";
+export {PageNotFound} from "./404";

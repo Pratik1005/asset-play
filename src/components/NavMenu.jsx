@@ -1,15 +1,37 @@
 import {NavLink} from "react-router-dom";
+import {useEffect} from "react";
+import {useTheme, useMobileMenu} from "../context";
 
 const getActiveStyle = ({isActive}) =>
   isActive ? {backgroundColor: "var(--menu-hover)"} : null;
 
 const NavMenu = () => {
+  const {theme, setTheme} = useTheme();
+  const {mobileMenuToggle, setMobileMenuToggle} = useMobileMenu();
+
+  useEffect(() => {
+    localStorage.setItem("themeState", theme);
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
+  };
+
+  const handleToggleMenu = () => {
+    setMobileMenuToggle((prev) => !prev);
+  };
   return (
-    <aside className="pd-sm">
-      <div>
-        <h1 className="logo">AssetPlay</h1>
+    <aside className={`pd-sm ${mobileMenuToggle ? "show-menu" : ""}`}>
+      <div className="flex-center">
+        <h1 className="logo pd-bottom-md">AssetPlay</h1>
+        <span
+          className="material-icons mobile-menu-close cursor-pointer"
+          onClick={() => setMobileMenuToggle((prev) => !prev)}
+        >
+          close
+        </span>
       </div>
-      <nav className="side-menu">
+      <nav className="side-menu" onClick={handleToggleMenu}>
         <NavLink style={getActiveStyle} className="menu-link" to="/">
           <span className="material-icons">home</span> Home
         </NavLink>
@@ -30,9 +52,18 @@ const NavMenu = () => {
           <span className="material-icons">watch_later</span>
           Watch later
         </NavLink>
-        <div className="menu-link">
-          <span className="material-icons">dark_mode</span>
-          Dark mode
+        <div className="menu-link" onClick={handleTheme}>
+          {theme === "light-theme" ? (
+            <>
+              <span className="material-icons">dark_mode</span>
+              <span>Dark mode</span>
+            </>
+          ) : (
+            <>
+              <span className="material-icons">light_mode</span>
+              <span>Light mode</span>
+            </>
+          )}
         </div>
         <NavLink to="/profile" style={getActiveStyle} className="menu-link">
           <span className="material-icons">account_circle</span> Profile

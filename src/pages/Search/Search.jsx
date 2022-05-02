@@ -1,6 +1,6 @@
 import "./Search.css";
 import {useState, useEffect} from "react";
-import {NavMenu, VideoCard} from "../../components";
+import {NavMenu, VideoCard, MobileHeader} from "../../components";
 import axios from "axios";
 
 const Search = () => {
@@ -29,6 +29,7 @@ const Search = () => {
   };
   return (
     <section className="app-ctn">
+      <MobileHeader />
       <NavMenu />
       <div>
         <div className="search-bar br-sm">
@@ -42,7 +43,7 @@ const Search = () => {
           />
         </div>
         {searchInput.length > 0 && searchResult.length === 0 && (
-          <h3 className="text-center">No videos found!</h3>
+          <h3 className="text-center result-text">No videos found!</h3>
         )}
         <div className="videos-ctn section-ctn">
           {searchInput.length > 0 &&
