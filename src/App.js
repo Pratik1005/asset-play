@@ -16,6 +16,7 @@ import {
   WatchLater,
   Profile,
   SingleVideo,
+  PageNotFound,
 } from "./pages/";
 import {ScrollToTop} from "./components";
 import Mockman from "mockman-js";
@@ -34,6 +35,7 @@ function App() {
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/forgotpassword"} element={<ForgotPassword />} />
         <Route path={"/singlevideo/:videoId"} element={<SingleVideo />} />
+        <Route path={"*"} element={<PageNotFound />} />
         <Route
           path={"/playlist"}
           element={

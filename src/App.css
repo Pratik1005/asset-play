@@ -17,6 +17,13 @@ ul {
   cursor: pointer;
 }
 
+/* page not found */
+.not-found-ctn {
+  max-width: 800px;
+  width: 100%;
+  margin: 5rem auto;
+}
+
 .app-ctn {
   display: grid;
   grid-template-columns: 1fr 7fr;
