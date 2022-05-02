@@ -173,6 +173,7 @@ aside nav span.material-icons {
   align-items: center;
   gap: 5px;
   padding-left: 2rem;
+  color: var(--text-color);
 }
 
 /* footer */
