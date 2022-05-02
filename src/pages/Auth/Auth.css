@@ -11,6 +11,7 @@ form.auth-form {
 
 .form-control {
   padding-bottom: 1rem;
+  position: relative;
 }
 
 .form-control label {
@@ -48,6 +49,12 @@ input:focus {
   justify-content: center;
   align-items: center;
   color: var(--txt-dark);
+}
+
+.hide-password {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 1rem;
 }
 
 /* login */

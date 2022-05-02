@@ -15,6 +15,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleEmail = (e) => {
     setLoginData((prev) => ({...prev, email: e.target.value}));
@@ -22,6 +23,10 @@ const Login = () => {
 
   const handlePassword = (e) => {
     setLoginData((prev) => ({...prev, password: e.target.value}));
+  };
+
+  const handleShowPassword = () => {
+    setIsPasswordVisible((prev) => !prev);
   };
 
   const handleLogin = async (e, email, password) => {
@@ -70,7 +75,7 @@ const Login = () => {
               Password
             </label>
             <input
-              type="password"
+              type={isPasswordVisible ? "text" : "password"}
               name="password"
               id="password"
               required
@@ -78,6 +83,16 @@ const Login = () => {
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
               onChange={(e) => handlePassword(e)}
             />
+            <span
+              className="hide-password cursor-pointer"
+              onClick={handleShowPassword}
+            >
+              {isPasswordVisible ? (
+                <span className="material-icons">visibility_off</span>
+              ) : (
+                <span className="material-icons">visibility</span>
+              )}
+            </span>
           </div>
           <div className="form-control">
             <input type="checkbox" id="remember-me" name="checkbox" />

@@ -16,6 +16,17 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  const [isPasswordVisible, setIsPasswordVisible] = useState({
+    password1: false,
+    password2: false,
+  });
+
+  const handleShowPassword = (password) => {
+    setIsPasswordVisible({
+      ...isPasswordVisible,
+      [password]: !isPasswordVisible[password],
+    });
+  };
 
   const signUpUser = async (userData) => {
     const {firstName, lastName, email, password} = userData;
@@ -107,7 +118,7 @@ const SignUp = () => {
               Password
             </label>
             <input
-              type="password"
+              type={isPasswordVisible.password1 ? "text" : "password"}
               id="password"
               name="password"
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
@@ -117,13 +128,23 @@ const SignUp = () => {
                 setSignUpData((prev) => ({...prev, password: e.target.value}))
               }
             />
+            <span
+              className="hide-password cursor-pointer"
+              onClick={() => handleShowPassword("password1")}
+            >
+              {isPasswordVisible.password1 ? (
+                <span className="material-icons">visibility_off</span>
+              ) : (
+                <span className="material-icons">visibility</span>
+              )}
+            </span>
           </div>
           <div className="form-control">
             <label htmlFor="confirm-password" className="fw-bold">
               Confirm password
             </label>
             <input
-              type="password"
+              type={isPasswordVisible.password2 ? "text" : "password"}
               id="confirm-password"
               name="confirm-password"
               placeholder="&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;"
@@ -136,6 +157,16 @@ const SignUp = () => {
                 }))
               }
             />
+            <span
+              className="hide-password cursor-pointer"
+              onClick={() => handleShowPassword("password2")}
+            >
+              {isPasswordVisible.password2 ? (
+                <span className="material-icons">visibility_off</span>
+              ) : (
+                <span className="material-icons">visibility</span>
+              )}
+            </span>
           </div>
           <div className="form-control">
             <input
