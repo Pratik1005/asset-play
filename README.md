@@ -1,4 +1,9 @@
+<div align="center">
+<img src="src/assets/logo.png" width="100" height="100" />
+
 # AssetPlay
+
+</div>
 
 ## Video Library App to help you with Personal Finance
 
