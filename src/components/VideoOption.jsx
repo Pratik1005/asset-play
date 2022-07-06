@@ -1,6 +1,7 @@
 import {useNavigate, useLocation} from "react-router-dom";
 import {useAuth, useUserData} from "../context";
 import {likeService, watchLaterService, removeFromHistory} from "../services";
+import {isVideoPresent} from "../utils";
 
 const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
   const {userDataState, userDataDispatch} = useUserData();
@@ -46,13 +47,19 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
     <div className="options br-sm">
       <ul>
         <li onClick={handleWatchLater}>
-          <span className="material-icons">watch_later</span>Save to watch later
+          <span className="material-icons">watch_later</span>
+          {isVideoPresent(userDataState.watchLater, video._id)
+            ? "Remove from watch later"
+            : "Save to watch later"}
         </li>
         <li onClick={handleSavePlaylist}>
           <span className="material-icons">playlist_add</span>Save to playlist
         </li>
         <li onClick={handleLikeVideo}>
-          <span className="material-icons">thumb_up</span>Add to liked videos
+          <span className="material-icons">thumb_up</span>
+          {isVideoPresent(userDataState.likedVideos, video._id)
+            ? "Remove from liked videos"
+            : "Add to liked videos"}
         </li>
         {location.pathname === "/history" && (
           <li onClick={handleRemoveVideo}>
