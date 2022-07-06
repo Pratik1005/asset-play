@@ -50,7 +50,7 @@ const VideoOption = ({setIsOptionActive, setIsSaveToPlaylistActive, video}) => {
           <span className="material-icons">watch_later</span>
           {isVideoPresent(userDataState.watchLater, video._id)
             ? "Remove from watch later"
-            : "save to watch later"}
+            : "Save to watch later"}
         </li>
         <li onClick={handleSavePlaylist}>
           <span className="material-icons">playlist_add</span>Save to playlist
