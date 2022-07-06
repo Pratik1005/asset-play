@@ -23,7 +23,7 @@ const Search = () => {
     setSearchInput(e.target.value);
     setSearchResult(
       allVideos.filter((video) =>
-        video.title.toLowerCase().includes(searchInput.toLowerCase())
+        video.title.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
   };
