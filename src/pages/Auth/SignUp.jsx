@@ -37,7 +37,13 @@ const SignUp = () => {
         email,
         password,
       });
+      const userData = {
+        firstName: signUpData.firstName,
+        lastname: signUpData.lastName,
+        email: signUpData.email,
+      };
       localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("userData", JSON.stringify(userData));
       setAuth({token: response.data.encodedToken, isLoggedIn: true});
       toast.success("Successfully Signed In");
       navigate("/");
@@ -54,6 +60,16 @@ const SignUp = () => {
     } else {
       toast.error("Passwords should match");
     }
+  };
+
+  const handleTestInput = () => {
+    setSignUpData({
+      firstName: "Jhon",
+      lastName: "Doe",
+      email: "jhondoe@gmail.com",
+      password: "jhon@123",
+      confirmPassword: "jhon@123",
+    });
   };
   return (
     <section className="app-ctn">
@@ -181,6 +197,15 @@ const SignUp = () => {
           </div>
           <div className="form-control">
             <button className="btn btn-primary">Create New Account</button>
+          </div>
+          <div className="form-control">
+            <button
+              type="button"
+              className="btn btn-primary-outline"
+              onClick={handleTestInput}
+            >
+              Fill test credentials
+            </button>
           </div>
           <div className="account-toggle fw-bold">
             <Link to="/login">
