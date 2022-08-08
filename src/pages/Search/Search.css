@@ -4,7 +4,8 @@
   justify-content: center;
   border: 2px solid var(--light-gray);
   background-color: var(--clr-white);
-  margin: 2rem 2rem 1rem;
+  margin: 2rem auto 1rem;
+  max-width: 50rem;
 }
 
 .search-icon {
@@ -17,4 +18,10 @@
 
 .result-text {
   color: var(--text-color);
+}
+
+@media screen and (max-width: 1050px) {
+  .search-bar {
+    margin: 2rem 2rem 1rem;
+  }
 }
