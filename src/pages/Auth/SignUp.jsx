@@ -39,7 +39,7 @@ const SignUp = () => {
       });
       const userData = {
         firstName: signUpData.firstName,
-        lastname: signUpData.lastName,
+        lastName: signUpData.lastName,
         email: signUpData.email,
       };
       localStorage.setItem("token", response.data.encodedToken);
