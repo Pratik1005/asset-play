@@ -11,7 +11,7 @@ const userDataReducer = (state, action) => {
       return {
         ...state,
         playlist: state.playlist.map((item) =>
-          item.title === action.payload.title ? action.payload : item
+          item._id === action.payload._id ? action.payload : item
         ),
       };
     case USER_ACTIONS.LIKED_VIDEOS_ACTIONS:

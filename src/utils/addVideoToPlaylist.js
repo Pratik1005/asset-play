@@ -15,6 +15,7 @@ const addVideoToPlaylist = async (
       {video},
       {headers: {authorization: token}}
     );
+    console.log("allPlaylist", response);
     dispatch({
       type: USER_ACTIONS.ADD_VIDEO_TO_PLAYLIST,
       payload: response.data.playlist,

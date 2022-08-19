@@ -21,7 +21,7 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
   };
 
   const handleTogglePlaylistVideo = (playlistId, title, videoId) => {
-    const isChecked = isVideoInPlaylist(playlist, title, videoId);
+    const isChecked = isVideoInPlaylist(playlist, videoId, playlistId);
     if (isChecked) {
       removeVideoFromPlaylist(
         playlistId,
@@ -59,12 +59,8 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
                 <input
                   type="checkbox"
                   name={item.title}
-                  id={item.title}
-                  checked={isVideoInPlaylist(
-                    playlist,
-                    item.title,
-                    videoData._id
-                  )}
+                  id={item._id}
+                  checked={isVideoInPlaylist(playlist, videoData._id, item._id)}
                   onChange={() =>
                     handleTogglePlaylistVideo(
                       item._id,
@@ -73,7 +69,7 @@ const PlaylistModal = ({setIsSaveToPlaylistActive, videoData}) => {
                     )
                   }
                 />
-                <label htmlFor={item.title}>{item.title}</label>
+                <label htmlFor={item._id}>{item.title}</label>
               </div>
             ))}
         </div>
