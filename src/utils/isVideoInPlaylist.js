@@ -1,6 +1,6 @@
-const isVideoInPlaylist = (playlist, title, videoId) => {
+const isVideoInPlaylist = (playlist, videoId, playlistId) => {
   return playlist
-    .filter((item) => item.title === title)[0]
+    .filter((item) => item._id === playlistId)[0]
     .videos.some((item) => item._id === videoId);
 };
 
